@@ -66,8 +66,8 @@ Two types of evidence were allowed: an image evidence is a shot during which a p
 
 For instance in the Figure 3, shot \#1 is an image evidence for Mr A (because his name and his face are visible simultaneously on screen) while shot \#3 is an audio evidence for Mrs B (because her name is pronounced less than 5 seconds before or after her face is visble on screen).
 
+For further details about the task, dataset and metrics the reader can refer to the task description [1].
 
-**référence vers le papier d'overview de la tache**
 
 
 
@@ -111,5 +111,9 @@ figure du processus simplifié
 
 Improve queue
 
+
+# References
+
+[1] J. Poignant, H. Bredin, and C. Barras. Multimodal Person Discovery in Broadcast TV at MediaEval 2015. In MEDIAEVAL, 2015.
 
 
