@@ -54,8 +54,6 @@ For this reason, it is not possible to assume that biometric models will always 
 Participants were provided with a collection of TV broadcast recordings pre-segmented into shots.
 Each shot had to be automatically tagged with the names of people both speaking and appearing at the same time during the shot. The main novelty of the task is that the list of persons was not provided a priori, and person biometric models (neither voice nor face) could not be trained on external data. The only way to identify a person was by finding their name in the audio (e.g. using speech transcription -- ASR) or visual (e.g. using optical character recognition -- OCR) streams and associating them to the correct person. This made the task completely unsupervised (i.e. using algorithms not relying on pre-existing labels or biometric models).
 
-Because person names were detected and transcribed automatically, they could contain transcription errors to a certain extent. 
-
 ![evidence definition](figs/evidence_def.png =700x)
 
 **Figure 3: definition of evidence**
@@ -64,39 +62,33 @@ To ensure that participants followed this strict ``no biometric supervision'' co
 
 Two types of evidence were allowed: an image evidence is a shot during which a person is visible, and their name is written on screen; an audio evidence is a shot during which a person is visible, and their name is pronounced at least once during the shot with 5 seconds of tolerance around the shot.
 
-For instance in the Figure 3, shot \#1 is an image evidence for Mr A (because his name and his face are visible simultaneously on screen) while shot \#3 is an audio evidence for Mrs B (because her name is pronounced less than 5 seconds before or after her face is visble on screen).
+For instance in the Figure 3, shot #1 is an image evidence for Mr A (because his name and his face are visible simultaneously on screen) while shot #3 is an audio evidence for Mrs B (because her name is pronounced less than 5 seconds before or after her face is visble on screen).
 
 For further details about the task, dataset and metrics the reader can refer to the task description [1].
 
 
+### Submission and annotation process
+
+As we do not known who is appearing in the videos, the annotation process is based on participant submissions. First, the *robot evidence in* fill a queue with annotations to do. The annotation interface for evidence ask to the annotator if the evidence is correct and to draw a bounding box around the face to extract a mugshot (see Figure 5). 
 
 
-### Annotations attendues
 ![Annotation process](figs/annotation_process.png =550x)
 
-Annotations a posteriori based on participants submissions
-
-- Evidence
-- Label
-
-
-### Processus de gestion des soumissions
-
-figure du processus simplifié
-
-### Client d'annotations
+**Figure 4: Annotation process**
 
 
 ![Annotation client of the evidences](figs/evidence_ui.png =350x)
 
-**Figure 4: Annotation interface for evidences**
+**Figure 5: Annotation interface for evidences**
 
-
-
+Secondly, depending on participant submissions and correct evidences, the *robot label in* fill a another queue with shot and associated hypothesis speaking face. A second interface (see Figure 6) pop the first element of this queue, shown the video segment and the list of hypothesis speaking face through their mugshots (the table at the left) and asks to the annotator to move this images in the right case (don't known, not visible, only visible, speaking face). It also propose additional hypotheses (at the bottom) and a search field if the annotator knows the name of a person but do not find its face in the proposed mugshots. All shots must be annotated twice and with a consensus between annotators.
 
 ![Annotation client of the labels](figs/label_ui.png =350x)
 
-**Figure 5: Annotation interface for labels**
+**Figure 6: Annotation interface for labels**
+
+Finally, a last robot updates every 6 hours the score obtained by each participant based on all annotations done.
+
 
 ### stat sur les annotations:
 
