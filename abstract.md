@@ -72,6 +72,7 @@ For instance in the Figure 3, shot \#1 is an image evidence for Mr A (because hi
 
 
 ### Annotations attendues
+![Annotation process](figs/annotation_process.png =550x)
 
 Annotations a posteriori based on participants submissions
 
