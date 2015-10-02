@@ -90,11 +90,32 @@ Finally, a last robot updates every 6 hours the score obtained by each participa
 
 ### Statistics:
 
-- nombre d'annotation
-- nombre d'annotateur
-- temps moyen
-- couverture du corpus
 
+|                                              | Evidence image | Evidence audio |   Label   |
+|----------------------------------------------|:--------------:|:--------------:|:---------:|
+| # annotator                                  |          3     |         3      |      20   |
+| # annotation                                 |       4908     |      2429      |   66089   |
+| median duration of the annotation in seconds |        6.6     |      17.6      |     4.4   |
+
+
+
+**Consensus**
+
+
+
+| # annotations / shot | # shot |
+|----------------------|:------:|
+| 1                    |  3172  |
+| 2                    | 22988  |
+| 3                    |  4326  |
+| 4                    |   699  |
+| >4                   |   218  |
+
+
+|                     | # shots |
+|---------------------|:-------:|
+| with at least 1 ann |  31403  |
+| with a consensus    |  27873  |
 
 
 # Conclusion & future works
