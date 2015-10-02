@@ -67,10 +67,9 @@ For instance in the Figure 3, shot #1 is an image evidence for Mr A (because his
 For further details about the task, dataset and metrics the reader can refer to the task description [1].
 
 
-### Submission and annotation process
+### Annotation process
 
-As we do not known who is appearing in the videos, the annotation process is based on participant submissions. First, the *robot evidence in* fill a queue with annotations to do. The annotation interface for evidence ask to the annotator if the evidence is correct and to draw a bounding box around the face to extract a mugshot (see Figure 5). 
-
+As we do not known a priori who is appearing in the videos, the annotation process is based on participant submissions. First, the *robot evidence in* fill a queue with annotations to do. The first web annotation interface (see Figure 5), ask to the annotator to check if the evidence is a correct one, the correctness of the transcription and to draw a bounding box around the face to extract a mugshot.
 
 ![Annotation process](figs/annotation_process.png =550x)
 
@@ -81,7 +80,7 @@ As we do not known who is appearing in the videos, the annotation process is bas
 
 **Figure 5: Annotation interface for evidences**
 
-Secondly, depending on participant submissions and correct evidences, the *robot label in* fill a another queue with shot and associated hypothesis speaking face. A second interface (see Figure 6) pop the first element of this queue, shown the video segment and the list of hypothesis speaking face through their mugshots (the table at the left) and asks to the annotator to move this images in the right case (don't known, not visible, only visible, speaking face). It also propose additional hypotheses (at the bottom) and a search field if the annotator knows the name of a person but do not find its face in the proposed mugshots. All shots must be annotated twice and with a consensus between annotators.
+Secondly, depending on participant submissions and correct evidences, the *robot label in* fill a another queue with shot segment and associated hypotheses. A second interface (see Figure 6) pop the first element of this queue, shown the video segment and the list of hypotheses through their mugshots (the table at the left) and asks to the annotator to move these images in the right case (don't known, not visible, only visible, speaking face). It also propose additional hypotheses (at the bottom) and a search field if the annotator knows the name of a person but do not find its face in the proposed mugshots. All shots must be annotated twice and with a consensus between annotators.
 
 ![Annotation client of the labels](figs/label_ui.png =350x)
 
@@ -89,8 +88,7 @@ Secondly, depending on participant submissions and correct evidences, the *robot
 
 Finally, a last robot updates every 6 hours the score obtained by each participant based on all annotations done.
 
-
-### stat sur les annotations:
+### Statistics:
 
 - nombre d'annotation
 - nombre d'annotateur
