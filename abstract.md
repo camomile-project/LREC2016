@@ -1,5 +1,3 @@
-# Abstract
-
 
 
 # Introduction
@@ -12,7 +10,7 @@ After this short introduction, we present the collaborative annotation framework
 
 
 
-# Collaborative Annotation Framework: camomile REST-API Server
+# Collaborative Annotation Framework: the Camomile REST-API Server
 
 Aiming for a flexible development and use, the collaborative annotation framework is implemented using state of the art web-based technologies, namely libraries and tools developed mostly in Javascript and Python. The ultimate purpose of the platform is to provide on demand overviews and details regarding the 3M data, and the associated automatic and manual annotations. Some views would be dedicated to the fine-grain inspection of annotation files, while some others would serve some higher-level task, such as summarizing the media of a specific corpus according to the exhaustiveness of their associated annotations, or the performance of the algorithms to infer the latter. Multiple users may be involved, synchronously or asynchronously, and with several roles (manual annotators, recognition algorithm developer, adjudicator). Web-based technologies and Javascript already comprise many building blocks suitable for supporting this kind of collaborative behavior. As illustrated in Figure 1, the proposed collaborative annotation framework follows a client/server architecture. This paradigm facilitates the work of multiple users on consistent data sources, as required by the project specifics. The involved server-side technologies rely solely on exchanges via the HTTP protocol, facilitating the design of interoperable software components. The server, described to a greater extent in the next section, focuses essentially on data and authentication management tasks, leaving the application logic to the client side. The aim of doing so is to design a general and consistent service, allowing the agile development of browser-based clients, each implemented according to a concrete use-case (e.g., annotation, error analysis, … ).
 
@@ -29,6 +27,8 @@ Resources are the fundamental concept in any RESTful API, and thus they need to 
 
 This figure illustrates an ER diagram of these collections (tables), where: _id is the identifier of a resource; id_xxx is the identifier of the resource xxx; layer_type indicates the type of the layer, for example “speaker ground truth”. fragment_type is a generic type and describes the type of the fragments, which are annotation units stored in the annotation collection. Fragment_type can currently be segments or rectangles (for face recognition). data_type is the data type of each annotated fragment, and it can be a name of a speaker or a spoken person. The range of supported types is designed to be easily extended to potentially new annotation tasks. Source stores all information about the layer, including created_date, the path to its location on the server, etc. ACL correspond to the user or group rights on the resource (the media inherits the rights of the corpus to which it belongs, the annotations inherits the rights of the layers to which it belongs). Finally, history is a list of modifiers. To allow the 3M data stored in the above collections to be manipulated, each resource needs to have its own unique URL, used for method (i.e. operation) parametrization.
 
+**ajouter quelques phrases sur les queues, droits d'acces, utilisateurs et groupes ???**
+
 A documentation with all the routes available on this server can be found at 
 [http://camomile-project.github.io/camomile-server](http://camomile-project.github.io/camomile-server)
 
@@ -37,19 +37,15 @@ The source code of the camomile server can be found at
 
 
 
-# Camomile at MediaEval 2015: Person Dicovery in Broadcast TV
+# Camomile at MediaEval 2015: Person Dicovery in Broadcast TV task
 
-In this section we present how the camomile server has been tested in real conditions with success during the MediaEval 2015 benchmark for the Person Dicovery in Broadcast TV task.
-
-### Motivation of the task
-
-TV archives maintained by national institutions such as the French INA, the Netherlands Institute for Sound \& Vision, or the British Broadcasting Corporation are rapidly growing in size. The need for applications that make these archives searchable has led researchers to devote concerted effort to developing technologies that create indexes.
+The camomile server has been tested in real conditions with success during the MediaEval 2015 benchmark for the Person Dicovery in Broadcast TV task. This task try to response to an important issue of TV archivist: How to ensure that archives are exploitable. The need for applications that make these archives searchable has led researchers to devote concerted effort to developing technologies that create indexes.
 
 Indexes that represent the location and identity of people in the archive are indispensable for searching archives. Human nature leads people to be very interested in other people. However, when the content is created or broadcast, it is not always possible to predict which people will be the most important to find in the future.
 
 For this reason, it is not possible to assume that biometric models will always be available at indexing time. For some people, such a model may not be available in advance, simply because they are not (yet) famous. In such cases, it is also possible that archivists annotating content by hand do not even know the name of the person. The goal of this task is to address the challenge of indexing people in the archive, under real-world conditions (i.e. when there is no pre-set list of people to index).
 
-### definition of the task
+### Definition of the task
 
 Participants were provided with a collection of TV broadcast recordings pre-segmented into shots.
 Each shot had to be automatically tagged with the names of people both speaking and appearing at the same time during the shot. The main novelty of the task is that the list of persons was not provided a priori, and person biometric models (neither voice nor face) could not be trained on external data. The only way to identify a person was by finding their name in the audio (e.g. using speech transcription -- ASR) or visual (e.g. using optical character recognition -- OCR) streams and associating them to the correct person. This made the task completely unsupervised (i.e. using algorithms not relying on pre-existing labels or biometric models).
@@ -117,10 +113,6 @@ Finally, a last robot updates every 6 hours the score obtained by each participa
 | with at least 1 ann |  31403  |
 | with a consensus    |  27873  |
 
-
-# Conclusion & future works
-
-Improve queue
 
 
 # References
