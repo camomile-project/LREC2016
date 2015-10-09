@@ -23,4 +23,4 @@ A documentation with all the routes available on this server can be found at
 The source code of the camomile server can be found at
 [https://github.com/camomile-project/camomile-server](https://github.com/camomile-project/camomile-server)
 
-
+## Active learning use case
