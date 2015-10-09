@@ -3,6 +3,8 @@
 
 ### Johann Poignant, Hervé Bredin, Claude Barras, + LIST 
 
+## Introduction
+
 Evaluation has been a driving force for research in the field of human language technology for decades, thanks to the efforts of NIST [1] followed by eg. the CLEF initiative or campaigns like ESTER and ETAPE. The concept has been successfully transposed to the image processing and more generally to the multimodal communities with the CLEAR, TRECVID, REPERE or MediaEval campaigns, to cite a few significant ones. More generally, it is fitted to the assessment of experimental research in fields where the human perception and decision is to be reproduced through machine learning on large data bases of annotated representative samples [2]. 
 
 The general methodology described by NIST is the following [1]: clear specification of the task; definition of an evaluation metric and public diffusion of an automatic scoring software; design of the training, development and evaluation corpora; definition of evaluation rules, schedule, protocols and submission formats; and finally sharing of participant results through system descriptions and workshop communications.
@@ -33,7 +35,7 @@ The system outputs were evaluated through a standard information retrieval scena
 
 A client-server framework was developed during the CAMOMILE project for supporting collaborative annotation of multimodal data [4]. The data model is intentionnaly kept as simple as possible for a better genericity: basically, a corpus is a set of media and contains layers, each one being a collection of annotations which links any data (e.g. the name of the current speaker) to a fragment of a medium (e.g. a temporal segment). Permissions to corpus and layers are controlled for users or groups of users, which is of course critical for insuring that the participants of the campaign only get access to the intended resources. Finally, a generic queuing mechanism is also implemented on the server as a means of controlling the workflow. The server provides web-based RESTful API allowing for easy access through eg. web client interfaces or Python scripts. A documentation with all the routes available on this server can be found at <http://camomile-project.github.io/camomile-server> and the source code of the server can be found at <https://github.com/camomile-project/camomile-server>
 
-Around the serveur, we have developed python scripts and web interfaces to adapt the workflow for this task (see figure 2). Note that due to bandwidth issues or distribution right concerns, the development and evaluation dataset were distributed independantly of this framework but were nonetheless accessible from the web interfaces.
+Around the server, we developed scripts or background-running robots in Python language and web interfaces to implement the workflow of the task (see figure 2). Note that due to bandwidth issues or distribution right concerns, the development and evaluation dataset were distributed independantly of this framework but were nonetheless accessible from the web interfaces.
 
 ![workflow for Person Discovery task](figs/Camomile_at_MediaEvalv2.png)
 
@@ -41,9 +43,9 @@ Around the serveur, we have developed python scripts and web interfaces to adapt
 
 Once the participant were registered, a web administration interface was used to create user accounts and groups for each team. The participants could then use the submission script to submit or update their runs. This script, in addition to check the correctness of the submission, connects to the CAMOMILE server and creates a new layer associated to the evaluation corpus which contains the hypotheses (stored as annotations of the layer).
 
-For this task, we based the manual annotation on participant submissions. A robot has read all hypotheses on the server and has filled a queue with annotations to do. Two web interfaces were used successively to produce annotations. The first one was used to check the correctness of evidences, for the correct ones, we asked the annotator to extract a mugshot. The second interface asked, for a particular shot, if an hypothesis (via its mugshot) is a speaking face. A monitoring interface allowed us to follow the proportion of annotations already done.
+For this evaluation, the manual annotation was performed according to the participant submissions. At regular intervals, a robot fetched all the hypotheses stored on the server and filled a queue with the annotations to do. Two web interfaces were used successively to produce the annotations. The first one was used to check the correctness of evidences, for the correct ones, we asked the annotator to extract a mugshot. The second interface asked, for a particular shot, if an hypothesis (via its mugshot) is a speaking face (i.e., a person simultaneously visible and speaking during the shot). A monitoring interface allowed us to follow the proportion of annotations already done.
 
-A last robot has evaluated the runs on a subpart of annotations already done. The scores obtained have been displayed in a leaderboard updated every 6 hours. This information has helped participants to tune their algorithms. 
+A last robot scored the runs on a subpart of the annotations already done. The scores obtained were displayed in a leaderboard updated every 6 hours. This information allowed the participants to tune their algorithms during the development phase of the campaign.
 
 
 |                                              | Evidence image | Evidence audio |   Label   |
@@ -53,9 +55,7 @@ A last robot has evaluated the runs on a subpart of annotations already done. Th
 | median duration of the annotation in seconds |        6.6     |      17.6      |     4.4   |
 
 
-
 **Consensus**
-
 
 
 | # annotations / shot | # shot |
@@ -72,8 +72,11 @@ A last robot has evaluated the runs on a subpart of annotations already done. Th
 | with at least 1 ann |  31403  |
 | with a consensus    |  27873  |
 
+## Perspectives and conclusions
+
 ## Acknowledgements
-This work was supported by the French National Agency for Research under grant ANR-12-CHRI- 0006-01. We thank ELDA and INA for supporting the task with development and test datasets.
+
+This work was supported by the French National Agency for Research under grant ANR-12-CHRI-0006-01 (CAMOMILE project). We thank ELDA and INA for supporting the task with development and test datasets.
 
 ## References
 
