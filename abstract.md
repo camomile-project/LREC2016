@@ -3,21 +3,19 @@
 
 ### Johann Poignant, Hervé Bredin, Claude Barras, … 
 
-<br/>
+Evaluation has been a driving force for research in the field of human language technology for decades, thanks to the efforts of NIST [1] followed by eg. the CLEF initiative or campaigns like ESTER and ETAPE. The concept has been successfully transposed to the image processing and more generally to the multimodal communities with the CLEAR, TRECVID, REPERE or MediaEval campaigns, to cite a few significant ones. More generally, it is fitted to the assessment of experimental research in fields where the human perception and decision is to be reproduced through machine learning on large data bases of annotated representative samples [2]. 
 
+The general methodology described by NIST is the following [1]: clear specification of the task; definition of an evaluation metric and public diffusion of an automatic scoring software; design of the training, development and evaluation corpora; definition of evaluation rules, schedule, protocols and submission formats; and finally sharing of participant results through system descriptions and workshop communications.
+The automatic scoring is made possible thanks to a manual annotation of the data according to the task definition, which is the most time consuming and thus costly and limiting factor of the evaluation campaigns.
+When addressing new goals in multimodal perception, we face the challenge of an ever increasing volume of data which can not be extensively annotated in advance. A promising solution has been explored in the TRECVID campaigns, where the annotation is performed after the submission of the participants, according to the results of the systems and can be limited to the annotation of a representative sample of the data. However, this adds a dependency between the different phases of the evaluation and makes the general process more complex.
 
-Human activity is constantly generating large volumes of heterogeneous data, in particular via the Web. These data can be collected and explored to gain new insights in social sciences, linguistics, economics, behavioural studies as well as artificial intelligence and computer sciences. 3M (multimodal, multimedia, multilingual) data could be seen as a paradigm of sharing an object of study, human data, between many scientific domains. In this regard, evaluation campaigns give a surrounding to evaluate new algorithms that exploit these data. 
+In the context of the CHIST-ERA CAMOMILE project on collaborative annotation of multi-modal, multi-lingual and multi-media documents, we addressed the problem of multimodal person recognition and organized a task on Multimodal Person Discovery in Broadcast TV at MediaEval 2015 [3]. The workflow of the evaluation campaign is classical and can be divided in 5 steps (see Figure 1). First, participants register to the task, raising the need for users and groups management. Secondly, data are released to participants, then, participants process the data with their algorithms and submit hypotheses. In parallel, manual annotations are done, possibly taking into account the participant submissions. These annotations can also in turn be used to train or tune the algorithms. Finally, the scoring is performed with the possibility to show the performance evolution during the development phase via a leaderboard.
 
-A classical workflow for an evaluation campaign can be divided in 5 steps (see Figure 1). First, participants register to a task, therefore users and groups of users should be managed. Secondly, data are release to participants, then, participants process data with their algorithms and submit hypotheses. In parallel, manual annotations are done  with the helps of the participant submissions or not. These annotations can also be used to train or tune algorithms. Finally, the evaluation is performed with the possibility to show the performances obtained via a leaderboard during the campaign.
+![REST-API server](figs/workflow.png)
 
-![REST-API server](figs/workflow.png =550x)
+**Figure 1: A classical workflow for an evaluation campaign**
 
-**Figure 1: A classical workflow for evalaution campaign**
-
-However, annotating data is costly as it involves a large amount of manual work, and in this regard 3M data, for which we need to annotate different modalities with different levels of abstraction is especially costly. These annotations can also be done on different site with different tools, which complicates the merger of annotations.
-
-A second issue is the information transfer between organizer, participants and annotators, like after the submission, a human intervention is generally required to evaluate this run and to return the result to the participant, while it can be automatized. This manual work makes impossible a comprehensive and fast overview of the state of the campaign (number of submission of versioning of the submission, annotations status, evolution of the scores …).
-
+As already noted, this process implies numerous information transfers between the evaluation organizer, participants and annotators. If a human intervention is needed to process the submission of a participant and return the scoring, it will prevent a comprehensive and fast overview of the state of the campaign (number of submissions and their versioning, annotations status, evolution of the scores …). The annotation has also to be performed on different sites in a collaborative way. The coordination of the annotations and the scoring of the different submissions could be largely automated, relying on the CAMOMILE framework, specific annotation interfaces and a set of background services which are all distributed in open source.
 
 ## Camomile REST-API Server
 
@@ -69,6 +67,11 @@ A last robot has evaluated the runs on a subpart of annotations already done. Th
 
 ## References
 
-[1] J. Poignant, H. Bredin, and C. Barras. Multimodal Person Discovery in Broadcast TV at MediaEval 2015. In MEDIAEVAL, 2015.
+[1] A. F. Martin, J. S. Garofolo, J. G. Fiscus, A. N. Le, D. S. Pallett, M. A. Przybocki, et G. A. Sanders, NIST Language Technology Evaluation Cookbook. In LREC, 2004.
 
+[2] E. Geoffrois, An Economic View on Human Language Technology Evaluation. In LREC, 2008.
+
+[3] J. Poignant, H. Bredin, and C. Barras. Multimodal Person Discovery in Broadcast TV at MediaEval 2015. In MEDIAEVAL, 2015.
+
+[4] J. Poignant et al. The CAMOMILE collaborative annotation framework. Submitted to LREC 2016. 
 
