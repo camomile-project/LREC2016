@@ -31,9 +31,9 @@ Participants were provided with a collection of TV broadcast recordings pre-segm
 
 The system outputs were evaluated through a standard information retrieval scenario using a mean average precision measure and a fully functional baseline system was also provided, allowing each participant to focus only  on one or several sub-modules of the systm. 8 teams participated to the task. For further details about the task, dataset and metrics the reader can refer to the task description [3].
 
-## Server, scripts and interfaces
+## Automatisation of the evaluation workflow
 
-A client-server framework was developed during the CAMOMILE project for supporting collaborative annotation of multimodal data [4]. The data model is intentionnaly kept as simple as possible for a better genericity: basically, a corpus is a set of media and contains layers, each one being a collection of annotations which links any data (e.g. the name of the current speaker) to a fragment of a medium (e.g. a temporal segment). Permissions to corpus and layers are controlled for users or groups of users, which is of course critical for insuring that the participants of the campaign only get access to the intended resources. Finally, a generic queuing mechanism is also implemented on the server as a means of controlling the workflow. The server provides web-based RESTful API allowing for easy access through eg. web client interfaces or Python scripts. A documentation with all the routes available on this server can be found at <http://camomile-project.github.io/camomile-server> and the source code of the server can be found at <https://github.com/camomile-project/camomile-server>
+A client-server framework was developed during the CAMOMILE project for supporting collaborative annotation of multimodal data [4]. The data model was intentionnaly kept as simple as possible for a better genericity: basically, a corpus is a set of media and contains layers, each one being a collection of annotations which links any data (e.g. the name of the current speaker) to a fragment of a medium (e.g. a temporal segment). Permissions to corpus and layers are controlled for users or groups of users, which is of course critical for insuring that the participants of the campaign only get access to the intended resources. Finally, a generic queuing mechanism is also implemented on the server as a means of controlling the workflow. The server provides web-based RESTful API allowing for easy access through eg. web client interfaces or Python scripts. A documentation with all the routes available on this server can be found at <http://camomile-project.github.io/camomile-server> and the source code of the server can be found at <https://github.com/camomile-project/camomile-server>
 
 Around the server, we developed scripts or background-running robots in Python language and web interfaces to implement the workflow of the task (see figure 2). Note that due to bandwidth issues or distribution right concerns, the development and evaluation dataset were distributed independantly of this framework but were nonetheless accessible from the web interfaces.
 
@@ -72,7 +72,9 @@ A last robot scored the runs on a subpart of the annotations already done. The s
 | with at least 1 ann |  31403  |
 | with a consensus    |  27873  |
 
-## Perspectives and conclusions
+## Conclusions and perspectives
+
+The management of the evaluation campaign described in this paper, including the development of the scripts, robots and interfaces specific to the campaign, was performed within a 6-month period by roughly 2 full-time person. It was made possible by taking advantage of the distributed annotation server with access control along with other inteThe server resisted the load. All the script and interfaces related to this campaign are publicly available - even if they were designed specifically for the chosen task, we believe that a significant part of the approach is generic and can be ported to a different task involving manual and automatic annotation of audio-visual corpora.
 
 ## Acknowledgements
 
