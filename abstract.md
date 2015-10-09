@@ -41,36 +41,48 @@ Around the server, we developed scripts or background-running robots in Python l
 
 **Figure 2: Programs and interfaces involved in the Person Discovery task**
 
-Once the participant were registered, a web administration interface was used to create user accounts and groups for each team. The participants could then use the submission script to submit or update their runs. This script, in addition to check the correctness of the submission, connects to the CAMOMILE server and creates a new layer associated to the evaluation corpus which contains the hypotheses (stored as annotations of the layer).
-
-For this evaluation, the manual annotation was performed according to the participant submissions. At regular intervals, a robot fetched all the hypotheses stored on the server and filled a queue with the annotations to do. Two web interfaces were used successively to produce the annotations. The first one was used to check the correctness of evidences, for the correct ones, we asked the annotator to extract a mugshot. The second interface asked, for a particular shot, if an hypothesis (via its mugshot) is a speaking face (i.e., a person simultaneously visible and speaking during the shot). A monitoring interface allowed us to follow the proportion of annotations already done.
-
-A last robot scored the runs on a subpart of the annotations already done. The scores obtained were displayed in a leaderboard updated every 6 hours. This information allowed the participants to tune their algorithms during the development phase of the campaign.
 
 
-|                                              | Evidence image | Evidence audio |   Label   |
-|----------------------------------------------|:--------------:|:--------------:|:---------:|
-| # annotator                                  |          3     |         3      |      20   |
-| # annotation                                 |       4908     |      2429      |   66089   |
-| median duration of the annotation in seconds |        6.6     |      17.6      |     4.4   |
+
+Once the participant were registered, a web administration interface was used to create user accounts and groups for each team. The participants could then use the submission script to submit or update their runs. This script, in addition to check the correctness of the submission, connects to the CAMOMILE server and creates a new layer associated to the evaluation corpus which contains the hypotheses (stored as annotations of the layer). 
+
+For this evaluation, the manual annotation was performed according to the participant submissions. At regular intervals, a robot fetched all the hypotheses stored on the server and filled a queue with the annotations to do. Two web interfaces were used successively to produce the annotations. The first one was used to check the correctness of evidences, for the correct ones, we asked to the annotator to draw a bounding box around the face to extract a mugshot who was used as a basis for comparison (to overcome the language dependencies for the rest of the annotation process). The first annotations step for evidences was performed by three annotators (ourselves since we are native speaker) with around 7337 annotations done (see table 1). Audio evidences have taken longer en average as we need to listen the whole shot plus 10 seconds around while for image we just have to found the image where the name is written on screen. 
 
 
-**Consensus**
+In the second interface, we asked, for a particular shot, if an hypothesis (via its mugshot) is a speaking face (i.e., a person simultaneously visible and speaking during the shot). Due to the size of the corpus we have asked to the participants to help us for these annotations. 20 persons participated for 66089 shots annotated with a median duration of 4.4 seconds. A monitoring interface allowed us to follow the proportion of annotations already done.
 
+|                                              | image evidences | audio evidences |   Label   |
+|----------------------------------------------|:---------------:|:---------------:|:---------:|
+| # annotator                                  |          3      |         3       |      20   |
+| # annotation                                 |       4908      |      2429       |   66089   |
+| median duration of the annotation in seconds |        6.6      |      17.6       |     4.4   |
 
-| # annotations / shot | # shot |
-|----------------------|:------:|
-| 1                    |  3172  |
-| 2                    | 22988  |
-| 3                    |  4326  |
-| 4                    |   699  |
-| >4                   |   218  |
+**table 1: number of annotation and median duration for the two web interface**
 
+For this second annotation step we asked a minimum of 2 annotations per shot and a consensus between annotator to validate the annotation. 28231 shots have been annotated at least once, while 98.7% of them a consensus between annotator has been find and 1.3% not (this proportion should be reduced if we had enough time to add new annotations).
 
-|                     | # shots |
-|---------------------|:-------:|
-| with at least 1 ann |  31403  |
-| with a consensus    |  27873  |
+|                     |      # shots   |
+|---------------------|:--------------:|
+| with at least 2 ann |  28231 (100%)  |
+| with a consensus    |  27873 (98.7%) |
+| without a consensus |    358 (1.3%)  |
+
+**table 2: number of shots annotated at least two time**
+
+In the next table we detailed the number of annotations per shot that was done to find the consensus. 15.3% of them required a third annotation to find the consensus, 2.4% required 4 annotations and 0.6% required more than 4 annotations. Which shows that in more than 5000 shots either the annotator was wrong or he was not agreement with the others. Number of cases revealed that the definition of a face speaking is sometimes ambiguous (singer, person doubled, difficulty understanding speech).
+
+| # annotations / shot |     # shot    |
+|----------------------|:-------------:|
+| 2                    | 22770 (81.7%) |
+| 3                    |  4257 (15.3%) |
+| 4                    |   658 (2.4%)  |
+| >4                   |   188 (0.6%)  |
+
+**table 3: number of annotations per shot with a consensus**
+
+Finally, a last robot scored the runs on a subpart of the annotations already done. The scores obtained were displayed in a leaderboard updated every 6 hours. This information allowed the participants to tune their algorithms during the development phase of the campaign.
+
+For other task organisation, some of these modules can be re-used as they are (users and groups management) or adapted (annotation interfaces, monitoring of annotations, leaderboard)
 
 ## Conclusions and perspectives
 
