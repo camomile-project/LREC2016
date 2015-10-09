@@ -26,7 +26,7 @@ The camomile server has been tested in real conditions with success during the M
 
 Participants were provided with a collection of TV broadcast recordings pre-segmented into shots. Each shot had to be automatically tagged with the names of people both speaking and appearing at the same time during the shot. The main novelty of the task is that the list of persons was not provided a priori, and person biometric models (neither voice nor face) could not be trained on external data. The only way to identify a person was by finding their name in the audio (e.g. using speech transcription -- ASR) or visual (e.g. using optical character recognition -- OCR) streams and associating them to the correct person. This made the task completely unsupervised (i.e. using algorithms not relying on pre-existing labels or biometric models). To ensure that participants followed this strict ``no biometric supervision'' constraint, each hypothesized name had to be backed up by a carefully selected and unique shot prooving that the person actually holds this name: we call this an evidence (e.g. a shot where a person is visible and its name is written on screen). In real-world conditions, this evidence would help a human annotator double-check the automatically-generated index, even for people they did not know beforehand.
 
-For further details about the task, dataset and metrics the reader can refer to the task description [1].
+For further details about the task, dataset and metrics the reader can refer to the task description [4].
 
 Around the serveur, we have developed python scripts and web interfaces to adapt the workflow for this task (see figure 4).
 
