@@ -41,6 +41,33 @@ For this task, we based the manual annotation on participant submissions. A robo
 A last robot has evaluated the runs on a subpart of annotations already done. The scores obtained have been displayed in a leaderboard updated every 6 hours. This information has helped participants to tune their algorithms. 
 
 
+|                                              | Evidence image | Evidence audio |   Label   |
+|----------------------------------------------|:--------------:|:--------------:|:---------:|
+| # annotator                                  |          3     |         3      |      20   |
+| # annotation                                 |       4908     |      2429      |   66089   |
+| median duration of the annotation in seconds |        6.6     |      17.6      |     4.4   |
+
+
+
+**Consensus**
+
+
+
+| # annotations / shot | # shot |
+|----------------------|:------:|
+| 1                    |  3172  |
+| 2                    | 22988  |
+| 3                    |  4326  |
+| 4                    |   699  |
+| >4                   |   218  |
+
+
+|                     | # shots |
+|---------------------|:-------:|
+| with at least 1 ann |  31403  |
+| with a consensus    |  27873  |
+
+
 
 ## References
 
