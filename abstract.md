@@ -1,7 +1,7 @@
 
 # Workflow management for a multimodal technology evaluation involving collaborative annotation
 
-### Johann Poignant, Hervé Bredin, Claude Barras, + LIST 
+### Johann Poignant, Hervé Bredin, Claude Barras, Mickael Stefas, Pierrick Bruneau, Thomas Tamisier
 
 ## Introduction
 

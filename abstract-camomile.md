@@ -1,7 +1,7 @@
 # Camomile REST-API server
 
 
-### Johann Poignant, Mateusz Budnik, Hervé Bredin, Claude Barras, Laurent Besacier, Georges Quénot, + LIST 
+### Johann Poignant, Mateusz Budnik, Hervé Bredin, Claude Barras, Laurent Besacier, Georges Quénot, Mickael Stefas, Pierrick Bruneau, Thomas Tamisier
 
 
 ## Introduction
