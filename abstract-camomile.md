@@ -43,3 +43,18 @@ The source code of the camomile server can be found at
 [https://github.com/camomile-project/camomile-server](https://github.com/camomile-project/camomile-server)
 
 ## Active learning use case
+
+The above framework can be easily extended with additional functionality to make the annotation process more efficient. To that end, an active learning use case is presented, which can be useful when the full annotation of the whole dataset is impossible due to cost or time constraints. Active learning is a set of algorithms that help with selecting  potentially informative samples for human annotation, while trying to avoid those that are redundant.
+
+In this scenario, the active learning (AL) system is based on the propagation of labels with the use of hierarchical clustering. Ideally, each cluster should correspond to a single person. Normally, the goal is to give a label (be it manually or automatically) to every segment in the dataset. 
+
+Automatically generated segments of a multimedia resource are used as queries. These segments are initially clustered using a distance measure dependent on the media (e.g. distance between HOG descriptors for face segments).  Afterwards, a cluster is selected for annotation based on a specific criterion (e.g. size of the cluster or how dense and well separated it is) depending on the annotation scenario. Next, a representative segment from the selected cluster is presented for the user to label. Initially, it is the one closest to the centroid of a cluster, i.e. having the minimal distance to all other segments within it. Once a cluster contains at least one annotated segment, outliers are selected, which are most likely to contain information belonging to a different person.
+
+After a segment is annotated by the user the cluster structure is modified accordingly. For example, two clusters that contain segments with the same name are merged. On the other hand, a cluster which contains segments with different labels is divided. A label assigned to a segment within a cluster is propagated to all of its unlabeled members. 
+
+The AL system is connected to the collaborative annotation framework via the use of two different types of queues. An input queue is filled with annotations, i.e. media fragments (see Figure 3), which are suggested by the AL algorithm for annotation. The task for the human annotator can be either identification, if the data field is empty (no name given to the fragment), or verification when a label is already assigned to the media fragment. The latter case can be used to verify the quality of automatically propagated labels or previous annotations done by humans. The most recent label given to a fragment is stored in the data field, while all the previous ones are added to the history list. This mechanism can be used for data cleaning and conflict resolution. From the input queue the annotations are distributed among the human annotators. Once a media fragment is assigned to a user, it is removed from the queue. 
+
+The annotations processed by the users are pushed to the output queue. Because the media fragments are automatically generated, some may be noisy or may not contain any information related to the task (speech segments with only music or silence for example). They can be skipped by the user and will be stored separately and not be used by the AL system. The named annotations are removed from the output queue and used in the next step of the system. 
+
+
+
