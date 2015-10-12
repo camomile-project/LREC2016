@@ -1,3 +1,22 @@
+# Camomile REST-API server
+
+
+### Johann Poignant, Mateusz Budnik, Hervé Bredin, Claude Barras, Laurent Besacier, Georges Quénot, + LIST 
+
+
+## Introduction
+
+Human activity is constantly generating large volumes of heterogeneous data, in particular via the Web. These data can be collected and explored to gain new insights in social sciences, linguistics, economics, behavioural studies as well as artificial intelligence and computer sciences.
+
+In this regard, 3M (multimodal, multimedia, multilingual) data could be seen as a paradigm of sharing an object of study, human data, between many scientific domains. But, to be really useful, these data should be annotated, and available in very large amounts. Annotated data is useful for computer sciences which process human data with statistical-based machine learning methods, but also for social sciences which are more and more using the large corpora available to support new insights, in a way which was not imaginable few years ago.
+
+However, annotating data is costly as it involves a large amount of manual work, and in this regard 3M data, for which we need to annotate different modalities with different levels of abstraction is especially costly. Current annotation framework involves some local manual annotation, with the help sometimes of some automatic tools (mainly pre-segmentation).
+
+We propose a first prototype of collaborative annotation framework on 3M data, in which the manual annotation will be done remotely on many sites, while the final annotation will be localized on the main site. Furthermore, with the same principle, some systems devoted to automatic processing of the modalities (speech, vision) present in the multimedia data will help the manual works, by producing automatic annotations. These automatic annotations are done remotely in each expertise point, which will be then combined locally to produce a meaningful help to the annotators. In order to develop this new annotation concept, we will test it on a practical case study: the problem of person annotation (who is speaking?, who is seen?) in video, which needs collaboration of high level automatic systems dealing with different media (video, speech, audio tracks, OCR, …). The quality of the annotated data will be evaluated through the task of person retrieval.
+
+This new way to envision the annotation process, should lead to some methodologies, tools, instruments and data that are useful for the whole scientific community who have interest in 3M annotated data.
+
+
 ## Camomile REST-API Server
 
 The CAMOMILE CHIST-ERA project aims at developing a prototype of collaborative annotation framework on 3M data, in which the manual annotation is done remotely on many sites. Furthermore, with the same principle, some systems devoted to automatic processing of the modalities (speech, vision) present in the multimedia data help the annotator. A users and groups management as well as the possibility to interact with the server via different clients also help the workflow.
