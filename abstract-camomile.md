@@ -1,4 +1,4 @@
-# Camomile REST-API server
+# The Camomile collaborative annotation plateform
 
 
 ### Johann Poignant, Mateusz Budnik, Hervé Bredin, Claude Barras, Laurent Besacier, Georges Quénot, Mickael Stefas, Pierrick Bruneau, Thomas Tamisier
