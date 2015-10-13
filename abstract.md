@@ -1,3 +1,4 @@
+# Multimedia technology benchmark made easy with the CAMOMILE platform. Feedback from the MediaEval 2015 Multimodal Person Discovery task.
 
 # Workflow management for a multimodal technology evaluation involving collaborative annotation
 
@@ -5,43 +6,139 @@
 
 ## Introduction
 
-Evaluation has been a driving force for research in the field of human language technology for decades, thanks to the efforts of NIST [1] followed by the CLEF initiative or campaigns like ESTER and ETAPE. The concept has been successfully transposed to the image processing and more generally to the multimedia communities with the CLEAR, TRECVID, REPERE or MediaEval campaigns, to cite a few significant ones. More generally, it is fitted to the assessment of experimental research in fields where the human perception and decision is to be reproduced through machine learning on large databases of annotated representative samples [2].
+For decades, NIST evaluation campaigns have been driving research in the field
+of human language technology [1], recently followed by the CLEF [X], ESTER [X]
+and ETAPE [X] initiatives. The concept has been successfully transposed to
+other research areas, such as image recognition (ImageNet Large Scale Visual
+Recognition Challenge [X]), video (TRECVID [X]) or multimedia indexing
+(MediaEval [X]). More generally, evaluation campaigns allow the assessment of
+experimental research in fields where human perception and decision must be
+reproduced by machine learning algorithms [2].
+<!-- on large databases of annotated representative samples. -->
 
-The general methodology described by NIST is the following [1]: clear specification of the task; definition of an evaluation metric and public diffusion of an automatic scoring software; design of the training, development and evaluation corpora; definition of evaluation rules, schedule, protocols and submission formats; and finally sharing of participant results through system descriptions and workshop communications.
-The automatic scoring is enabled by the manual annotation of the data according to the task definition, which is the most time consuming and thus costly and limiting factor of the evaluation campaigns.
-When addressing new goals in multimodal perception, we face the challenge of an ever increasing volume of data which cannot be extensively annotated in advance. A promising solution has been explored in the TRECVID Semantic Indexing campaigns, where the annotation is performed a posteriori based on participants' submissions and is limited to a representative subset of the test data. However, this adds a dependency between the different phases of the evaluation and makes the general process more complex (???).
+The general workflow of *à la NIST* evaluation campaigns comprises the
+following stages [1]: specification of the task; definition of the evaluation
+metric and provision of an automatic scoring software; design and annotation of
+the training, development and evaluation corpora; definition of evaluation
+rules, schedule, protocols and submission formats; sharing of participant
+results through system descriptions and workshop communications.
 
-In the context of the CHIST-ERA CAMOMILE project on collaborative annotation of multi-modal, multi-lingual and multi-media documents, we addressed the problem of multimodal person recognition and organized a task on Multimodal Person Discovery in Broadcast TV at MediaEval 2015 [3]. The workflow of the evaluation campaign is classical and can be divided in 5 steps (see the upper of the Figure 1). First, participants register to the task, raising the need for users and groups management. Secondly, data are released to participants, then, participants process the data with their algorithms and submit hypotheses. In parallel, manual annotations are done, possibly taking into account the participant submissions. These annotations can also in turn be used to train or tune the algorithms. Finally, the scoring is performed with the possibility to show the performance evolution during the development phase via a leaderboard.
+Automatic scoring is made possible by the manual annotation of the data
+according to the task definition. Costly and time-consuming, this annotation
+step usually is the main bottleneck of evaluation campaigns. When addressing
+new tasks in multimodal perception, it becomes challenging (if not impossible)
+to pre-annotate the ever-increasing volume of multimedia data. A compromise
+has been successfully explored in the TREC and TRECVid campaigns, where
+the annotation of a small (but carefully chosen [5]) subset of the test data is
+bootstrapped by the participants' submissions.
+<!-- However, this adds a dependency between the different phases of the evaluation and makes the general process more complex (???). -->
 
-![REST-API server](figs/workflow2.png)
+In this paper, we claim that the CAMOMILE collaborative annotation platform
+(developed in the framework of the eponymous CHIST-ERA project) eases the
+organization of multimedia technology benchmarks, automating most of the
+campaign technical workflow and enabling collaborative (hence faster and
+cheaper) annotation of the evaluation data. This is demonstrated through the
+successful organization of a new multimedia task at MediaEval 2015, Multimodal
+Person Discovery in Broadcast TV [3].
 
-**Figure 1: A classical workflow for an evaluation campaign**
+## MediaEval 2015: Multimodal Person Discovery in Broadcast TV
+
+The objective of this new task is to make TV archives fully exploitable and
+searchable through people indexing. Participants were provided with a
+collection of TV broadcast recordings pre-segmented into shots. Each shot had
+to be automatically tagged with the names of people both speaking and appearing
+at the same time during the shot.
+
+Since one cannot assume that biometric models of persons of interest are
+available at indexing time, the main novelty of the task was that the list of
+persons was not provided a priori. Biometric models (either voice or face)
+could not be trained on external data. The only way to identify a person was by
+finding their name in the audio (using speech transcription - ASR) or visual
+(using optical character recognition - OCR) streams and associating them to the
+correct person -- making the task completely unsupervised with respect to prior
+biometric models.
+
+To ensure that participants followed this strict ``no biometric supervision''
+constraint, each hypothesized name had to be backed up by an ``evidence'': a
+unique and carefully selected shot prooving that the person actually holds this
+name (e.g. a shot showing a text overlay introducing the person by their name).
+In real-world conditions, this evidence would help a human annotator
+double-check the automatically-generated index, even for people they did not
+know beforehand.
+
+Participants were provided with a fully functional baseline system, allowing
+them to only focus on some aspects of the task (e.g. speaker diarization) while
+still being able to rely on the baseline modules for the other ones (e.g.
+optical character recognition). The task was evaluated as a standard
+information retrieval task using a metric derived from mean average precision.
+Eight teams managed to reach the submission deadline, amounting to a total of
+70 submitted runs. For further details about the task, dataset and metrics, the
+interested reader can refer to [3].
+
+## CAMOMILE + Person Discovery = <3
+
+The CAMOMILE platform was initially developed for supporting collaborative
+annotation of multimodal, multilingual and multimedia data [4]. The data model
+was kept intentionally simple and generic, with four types of resources:
+corpus, medium, layer and annotation. A corpus is a set of media (e.g. the
+evaluation corpus made of all test videos). An annotation is defined by a
+fragment of a medium (e.g. a shot) with an attached metadata (e.g. the name
+of the current speaker). Finally, a layer is an homogeneous set of annotations,
+sharing the same fragment type and the same metadata type (e.g. a complete run
+submitted by one participant). All these resources are accessible through a
+RESTful API (clients in Python and Javascript are readily available), with user
+authentication and permission management. A generic queueing mechanism is also
+available on the CAMOMILE backend as a means to control the workflow. The
+CAMOMILE platform is distributed as open-source software at the following
+address: <http://github.com/camomile-project/camomile-server>.
+
+### Automated workflow
+
+The upper part of Figure 1 depicts the technical workflow of the proposed
+evaluation campaign -- while the lower part summarizes how we relied on the
+CAMOMILE platform and the Python and Javascript clients to automate most of the
+stages.
+
+![REST-API server](figs/workflow.png)
+
+**Figure 1: Workflow**
+
+First, participants register to the task, raising the need for users and groups management.
+Secondly, data are released to participants, then, participants process the data with their algorithms and submit hypotheses.
+In parallel, manual annotations are done, possibly taking into account the participant submissions.
+These annotations can also in turn be used to train or tune the algorithms.
+Finally, the scoring is performed with the possibility to show the performance evolution during the development phase via a leaderboard.
+
+Around the server, we developed Python scripts and web interfaces to implement
+the workflow of the task (see the lower part of the figure 1).
+
+For other task organisation, some of these modules can be re-used as they are (users and groups management) or adapted (annotation interfaces, monitoring of annotations, leaderboard)
+
+#### Registration
+
+Once the participant were registered, a web administration interface was used to create user accounts and groups for each team.
+
+#### Distribution
+
+Note that due to
+bandwidth issues or distribution right concerns, the development and evaluation
+dataset were distributed independently of this framework but were nonetheless
+accessible from the web interfaces.
+
+#### Submission
+
+ The participants could then use the command line submission script to submit or update their runs. This script, in addition to check the correctness of the submission, connects to the CAMOMILE server and creates a new hypothesis layer for each submission.
+
+#### Collaborative annotation
 
 As already noted, this process implies numerous information transfers between the evaluation organizer, participants and annotators. If a human intervention is needed to process the submission of a participant and return the scoring, it will prevent a comprehensive and fast overview of the state of the campaign (number of submissions and their versioning, annotations status, evolution of the scores …). The annotation has also to be performed on different sites in a collaborative way. The coordination of the annotations and the scoring of the different submissions could be largely automated, relying on the CAMOMILE framework, specific annotation interfaces and a set of background services which are all distributed in open source
 ([https://github.com/camomile-project/camomile-server](https://github.com/camomile-project/camomile-server)]).
 
+#### Evaluation
 
+Finally, another Python script would score submitted runs on a subset of the annotations. The scores obtained were displayed in a leaderboard updated every 6 hours. This information allowed the participants to tune their algorithms during the development phase of the campaign.
 
-### Task defintion: Person Discovery at MediaEval 2015
-
-The Multimodal Person Discovery in Broadcast TV was proposed as a new task of MediaEval 2015 benchmarking initiative. The motivation is to make TV and video archives fully exploitable and searchable through indexation. Indexes that represent the location and identity of people in the archive are indispensable for searching archives. However, it is not possible to assume that biometric models of persons of interest will always be available at indexing time. The goal of this task is thus to address the challenge of indexing persons of interest in the archive, under real-world conditions, i.e. when there is no pre-set list of people to index.
-
-Participants were provided with a collection of TV broadcast recordings pre-segmented into shots. Each shot had to be automatically tagged with the names of people both speaking and appearing at the same time during the shot. The main novelty of the task is that the list of persons was not provided a priori, and person biometric models (either voice or face) could not be trained on external data. The only way to identify a person was by finding their name in the audio (e.g. using speech transcription - ASR) or visual (e.g. using optical character recognition - OCR) streams and associating them to the correct person. This made the task completely unsupervised (i.e. using algorithms not relying on pre-existing labels or biometric models). To ensure that participants followed this strict "no biometric supervision" constraint, each hypothesized name had to be backed up by a carefully selected and unique shot prooving that the person actually holds this name: we call this an evidence (e.g. a shot where a person is visible and their name is written on screen). In real-world conditions, this evidence would help a human annotator double-check the automatically-generated index, even for people they did not know beforehand.
-
-The system outputs were evaluated through a standard information retrieval scenario using mean average precision and a fully functional baseline system was also provided, allowing each participant to focus only on one or several sub-modules of the system. 8 teams participated to the task. For further details about the task, dataset and metrics, the reader can refer to the task description [3].
-
-### Camomile server
-
-A client-server framework was developed during the CAMOMILE project for supporting collaborative annotation of multimodal data [4]. The data model was intentionally kept as simple and generic as possible. A *corpus* is a set of media and contains layers, each one being a collection of annotations which links any data (e.g. the name of the current speaker) to a fragment of a medium (e.g. a temporal segment). Permissions to corpora and layers are controlled for users or groups of users, which is of course critical for insuring that the participants of the campaign only get access to the intended resources. Finally, a generic queuing mechanism is also implemented on the server as a means of controlling the workflow. The server provides web-based RESTful API allowing for easy access through web client interfaces or Python scripts. A documentation with all the routes available on this server can be found at <http://camomile-project.github.io/camomile-server> and the source code of the server can be found at <https://github.com/camomile-project/camomile-server>
-
-Around the server, we developed Python scripts and web interfaces to implement the workflow of the task (see the lower part of the figure 1). Note that due to bandwidth issues or distribution right concerns, the development and evaluation dataset were distributed independently of this framework but were nonetheless accessible from the web interfaces.
-
-
-#### Registration & submissions
-
-Once the participant were registered, a web administration interface was used to create user accounts and groups for each team. The participants could then use the command line submission script to submit or update their runs. This script, in addition to check the correctness of the submission, connects to the CAMOMILE server and creates a new hypothesis layer for each submission.
-
-#### Manual annotations
+### Collaborative annotation
 
 For this evaluation, the manual annotation relied on the participant submissions. Regularly, a Python script would fetch all the hypotheses stored on the server and filled a queue with the annotations to do. Two web interfaces were used successively to produce the annotations. The first one was used to check the correctness of hypothesized evidences. When correct, the annotator was asked to draw a bounding box around the face to generate a mugshot later used as a basis for comparison (to overcome the language dependencies for the rest of the annotation process). The first annotation step for evidences was performed by three annotators with around 7337 annotations done (see Table 1). Audio evidences have taken longer en average as we need to listen the whole shot plus 10 seconds around while for image we just have to find the image where the name is written on screen (TODO: define image vs. audio evidence).
 
@@ -76,10 +173,6 @@ In the next table we detailed the number of annotations per shot that was done t
 
 **table 3: number of annotations per shot with a consensus**
 
-Finally, another Python script would score submitted runs on a subset of the annotations. The scores obtained were displayed in a leaderboard updated every 6 hours. This information allowed the participants to tune their algorithms during the development phase of the campaign.
-
-For other task organisation, some of these modules can be re-used as they are (users and groups management) or adapted (annotation interfaces, monitoring of annotations, leaderboard)
-
 ## Conclusions and perspectives
 
 The management of the evaluation campaign described in this paper, including the development of the Python scripts and web interfaces specific to the campaign, was performed within a 6-month period by roughly 2 full-time person. It was made possible by taking advantage of the distributed annotation server with access control along with other inteThe server resisted the load. All the script and interfaces related to this campaign are publicly available. Even if they were designed specifically for the chosen task, we believe that a significant part of the approach is generic and can be ported to a different task involving manual and automatic annotation of audio-visual corpora.
@@ -97,3 +190,5 @@ This work was supported by the French National Agency for Research under grant A
 [3] J. Poignant, H. Bredin, and C. Barras. Multimodal Person Discovery in Broadcast TV at MediaEval 2015. In MEDIAEVAL, 2015.
 
 [4] J. Poignant et al. The CAMOMILE collaborative annotation framework. Submitted to LREC 2016.
+
+[5] E. Yilmaz, and J. A. Aslam. Estimating Average Precision with Incomplete and Imperfect Judgments. In Proceedings of the 15th ACM International Conference on Information and Knowledge Management.
