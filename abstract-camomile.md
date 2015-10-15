@@ -1,7 +1,7 @@
 # The CAMOMILE collaborative annotation platform
 
 
-### Johann Poignant ^1, Mateusz Budnik ^2, Hervé Bredin ^1, Claude Barras ^1, Laurent Besacier ^2, Georges Quénot ^2, Mickael Stefas ^3, Pierrick Bruneau ^3, Thomas Tamisier ^3, Gilles Adda ^1, Hazim Ekenel ^4, Javier Hernando ^5, Joseph Mariani ^6, Ramon Morros ^5
+### Johann Poignant ^1, Mateusz Budnik ^2, Hervé Bredin ^1, Claude Barras ^1, Mickael Stefas ^3, Pierrick Bruneau ^3,  Gilles Adda ^1, Laurent Besacier ^2,  Hazim Ekenel ^4, Javier Hernando ^5, Joseph Mariani ^6, Ramon Morros ^5, Georges Quénot ^2, Thomas Tamisier ^3
 
 (1) LIMSI-CNRS, Univ. Paris-Sud, Orsay, France
 (2) LIG, Univ. Grenoble Alpes, Grenoble, France
@@ -37,11 +37,11 @@ Resources are the fundamental concept in any RESTful API, and thus they need to 
 
 **Figure 3: CAMOMILE server data model**
 
-This Figure 3 illustrates an entity-relationship diagram of these collections (tables), where: *id* is the identifier of a resource; *id_xxx* is the identifier of the resource *xxx*; *name* provides a short description of a resource (corpus, media, layer, user, group or queue). *fragment_type* is a generic type and describes the type of the fragments, which are annotation units stored in the annotation collection. *fragment_type* can currently be segments or rectangles (for face recognition). *data_type* is the data type of each annotated fragment, and it can be a person name or a spoken word. The range of supported types is designed to be easily extended to potentially new annotation tasks. History is a list of modifiers and each medium can be accessed via an url. ACL correspond to the user or group rights (read, write, admin) on the resource; the media inherits the rights of the corpus to which it belongs, the annotations inherits the rights of the layers to which it belongs. Group and user are defined by a unique name and a description, a group contains a list of users and the user role can be a simple "user" or "admin" of the server. Finally, a last table is dedicated to queues which correspond to a list of elements. Queues have also a management of users and groups rights.
+Figure 3 illustrates an entity-relationship diagram of these collections (tables), where: *id* is the identifier of a resource; *id_xxx* is the identifier of the resource *xxx*; *name* provides a short description of a resource (corpus, media, layer, user, group or queue). *fragment_type* is a generic type and describes the type of the fragments, which are annotation units stored in the annotation collection. *fragment_type* can currently be segments or rectangles (for face recognition). *data_type* is the data type of each annotated fragment, and it can be a person name or a spoken word. The range of supported types is designed to be easily extended to potentially new annotation tasks. History is a list of modifiers and each medium can be accessed via an url. ACL correspond to the user or group rights (read, write, admin) on the resource; the media inherits the rights of the corpus to which it belongs, the annotations inherits the rights of the layers to which it belongs. Group and user are defined by a unique name and a description, a group contains a list of users and the user role can be a simple "user" or "admin" of the server. Finally, a last table is dedicated to queues which correspond to a list of elements. Queues have also a management of users and groups rights.
 
 A documentation with all the routes available on this server can be found at 
 [http://camomile-project.github.io/camomile-server](http://camomile-project.github.io/camomile-server); the source code of the camomile server is distributed under MIT open source license at
-[https://github.com/camomile-project/camomile-server](https://github.com/camomile-project/camomile-server).
+[https://github.com/camomile-project/camomile-server](https://github.com/camomile-project/camomile-server) and is provided with a Docker image allowing an easy installation.
 Along with the server, Python and JavaScript clients embedding the REST API into native language objects have also been developed and are distributed in sibling repositories.
 
 ## Active learning use case
