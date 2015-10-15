@@ -1,25 +1,26 @@
 # The CAMOMILE collaborative annotation platform
 
 
-### Johann Poignant ^1, Mateusz Budnik ^2, Hervé Bredin ^1, Claude Barras ^1, Laurent Besacier ^2, Georges Quénot ^2, Mickael Stefas ^3, Pierrick Bruneau ^3, Thomas Tamisier ^3, Gilles Adda ^1, Joseph Mariani ^4, Hazim Ekenel ^5, Javier Hernando ^6
+### Johann Poignant ^1, Mateusz Budnik ^2, Hervé Bredin ^1, Claude Barras ^1, Laurent Besacier ^2, Georges Quénot ^2, Mickael Stefas ^3, Pierrick Bruneau ^3, Thomas Tamisier ^3, Gilles Adda ^1, Hazim Ekenel ^4, Javier Hernando ^5, Joseph Mariani ^6, Ramon Morros ^5
 
 (1) LIMSI-CNRS, Univ. Paris-Sud, Orsay, France
 (2) LIG, Univ. Grenoble Alpes, Grenoble, France
 (3) LIST, Esch-sur-Alzette, Luxembourg 
-(4) IMMI-CNRS, Orsay, France
-(5) ITÜ, Istanbul, Turkey
-(6) UPC, Barcelona, Spain
+(4) ITÜ, Istanbul, Turkey
+(5) UPC, Barcelona, Spain
+(6) IMMI-CNRS, Orsay, France
 
 ## Introduction
 
 Human activity is generating growing volumes of heterogeneous data, available in particular via the Web. Multimodal, multimedia, multilingual (3M) data can be collected and explored to gain new insights in social sciences, linguistics, economics, behavioural studies as well as artificial intelligence and computer sciences. But to be analyzed through statistical-based machine learning methods, these data should be available in very large amounts and annotated. Annotating data is costly as it involves manual work, and in this regard 3M data, for which we need to annotate different modalities with different levels of abstraction is especially costly.
 
-Current annotation frameworks often involve a local manual annotation [1-5], sometimes supported by automatic tools e.g. for pre-segmentation or more complex processings [6]. In this case, dealing with multiple annotation layers and different versions of the annotation can quickly become infeasible. 
+Current annotation frameworks often involve a local manual annotation [1-5] sometimes supported by automatic processings [6]. In this case, dealing with multiple annotators and different versions of the annotation files quickly becomes infeasible. 
 Browser-based annotations interfaces, linked to a server for storing the annotations, can provide a solution to this problem, all the more so as browser performance and multimedia support dramatically improved in the recent years; this is a direction taken by LDC with its WebAnn initiative.
 
-In the context of the CHIST-ERA CAMOMILE project, we developed a collaborative annotation framework for 3M data, which allows to perform manual annotations remotely on different sites, while the final annotations are localized on the main server. Additionnaly, automatic processings of the modalities (speech, vision) present in the multimedia data can produce automatic annotations, which are then combined to produce a meaningful help to the annotators. 
+In the context of the CHIST-ERA CAMOMILE project, we developed a collaborative annotation framework for 3M data.
+We focused our work on the annotation of people, which are usually the centre of attention in 3M documents, and chose a use-case driven approach with different scenarios: collaborative annotation where several human annotators simultaneously label either the same or a different layer of a document, the monitoring and coordination of the annotation workflow, or active learning applications, where an automatic person recognition systems is used to bootstrap a manual annotation and is retrained or adapted using this result. Developers of mono-modal person identification components are also interested in the error analysis of automatic annotation systems, and need an interface that allows an easy visualization of errors and navigation between the reference annotation and the hypothesized outputs.
 
-In this paper, we first describe the organization and the implementation of the framework server. Given the versatile nature of the analysis which can be performed on 3M data, the structure of the server was kept intentionnaly simple in order to preserve its genericity. Interfaces tailored specifically to the needed task can then be developed in an agile way, relying on simple but reliable services for the management of the centralized annotations. We present our implementation of an active learning scenario for person annotation in video (who is speaking?, who is seen?), relying on the CAMOMILE server. 
+In this paper, we first describe the organization and the implementation of the framework server. Given the versatile nature of the analysis which can be performed on 3M data, the structure of the server was kept intentionnaly simple in order to preserve its genericity. Interfaces tailored specifically to the needed task can then be developed in an agile way, relying on simple but reliable services for the management of the centralized annotations. We present our implementation of an active learning scenario for person annotation in video, relying on the CAMOMILE server. 
 
 ## Collaborative annotation server
 
@@ -63,7 +64,9 @@ The annotations processed by the users are pushed to the output queue. Because t
 
 ## Conclusions
 
+The purpose of the CAMOMILE project has been to explore new practices around collaborative annotation and test it on specific use cases with dedicated prototypes. The developed framework can be summerized as a remote repository of annotations which are metadata attached to fragments of the media from a corpus, along with the associated RESTful API. It is thus compatible with other abstraction layers, e.g., annotation graphs [6], and the metadata can follow standards in the domain as proposed in the META-SHARE initiative [^1]. This simple framework was robust enough to support the active learning scenario described in this paper, as long as the organization of a MediaEval task with 20 annotators involved [7]. Further developments would improve the platform, like a direct communication between the clients through WebSockets or a flexible historization of the annotations.
 
+[^1]: <http://www.meta-net.eu/meta-share> 
         
 ## Acknowledgements
 
@@ -86,4 +89,8 @@ and technological research council of Turkey) and Mineco (Ministerio de Economí
 
 [5] E. Auer, A. Russel, H. Sloetjes, P. Wittenburg, O. Schreer, S. Masnieri, D. Schneider, S. Tshöpel. ELAN as Flexible Annotation Framework for Sound and Image Processing Detectors, LREC 2010.
 
-[6] J. Poignant et al. Submitted to LREC 2016.
+[6] S. Bird and M. Liberman, “A Formal Framework for Linguistic Annotation,” Speech Communication, vol. 33, no. 1–2, pp. 23–60, Jan. 2001.
+
+[7] J. Poignant et al. Submitted to LREC 2016.
+
+
