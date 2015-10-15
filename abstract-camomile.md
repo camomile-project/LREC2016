@@ -41,7 +41,7 @@ Figure 3 illustrates an entity-relationship diagram of these collections (tables
 
 A documentation with all the routes available on this server can be found at 
 [http://camomile-project.github.io/camomile-server](http://camomile-project.github.io/camomile-server); the source code of the camomile server is distributed under MIT open source license at
-[https://github.com/camomile-project/camomile-server](https://github.com/camomile-project/camomile-server) and is provided with a Docker image allowing an easy installation.
+[https://github.com/camomile-project/camomile-server](https://github.com/camomile-project/camomile-server) and is also provided in a Docker image allowing an easy installation.
 Along with the server, Python and JavaScript clients embedding the REST API into native language objects have also been developed and are distributed in sibling repositories.
 
 ## Active learning use case
