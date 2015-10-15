@@ -3,7 +3,7 @@
 
 ### Johann Poignant ^1, Mateusz Budnik ^2, Hervé Bredin ^1, Claude Barras ^1, Mickael Stefas ^3, Pierrick Bruneau ^3,  Gilles Adda ^1, Laurent Besacier ^2,  Hazim Ekenel ^4, Javier Hernando ^5, Joseph Mariani ^6, Ramon Morros ^5, Georges Quénot ^2, Thomas Tamisier ^3
 
-(1) LIMSI-CNRS, Univ. Paris-Sud, Orsay, France
+(1) LIMSI, CNRS, Univ. Paris-Sud, Université Paris-Saclay, F-91405 Orsay
 (2) LIG, Univ. Grenoble Alpes, Grenoble, France
 (3) LIST, Esch-sur-Alzette, Luxembourg 
 (4) ITÜ, Istanbul, Turkey
@@ -14,7 +14,7 @@
 
 Human activity is generating growing volumes of heterogeneous data, available in particular via the Web. Multimodal, multimedia, multilingual (3M) data can be collected and explored to gain new insights in social sciences, linguistics, economics, behavioural studies as well as artificial intelligence and computer sciences. But to be analyzed through statistical-based machine learning methods, these data should be available in very large amounts and annotated. Annotating data is costly as it involves manual work, and in this regard 3M data, for which we need to annotate different modalities with different levels of abstraction is especially costly.
 
-Current annotation frameworks often involve a local manual annotation [1-5] sometimes supported by automatic processings [6]. In this case, dealing with multiple annotators and different versions of the annotation files quickly becomes infeasible. 
+Current annotation frameworks often involve a local manual annotation [1-4] sometimes supported by automatic processings [5]. In this case, dealing with multiple annotators and different versions of the annotation files quickly becomes infeasible. 
 Browser-based annotations interfaces, linked to a server for storing the annotations, can provide a solution to this problem, all the more so as browser performance and multimedia support dramatically improved in the recent years; this is a direction taken by LDC with its WebAnn initiative.
 
 In the context of the CHIST-ERA CAMOMILE project, we developed a collaborative annotation framework for 3M data.
