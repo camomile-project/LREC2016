@@ -1,7 +1,7 @@
 # The CAMOMILE collaborative annotation platform
 
 
-### Johann Poignant<sup>1</sup>, Mateusz Budnik<sup>2</sup>, Hervé Bredin<sup>1</sup>, Claude Barras<sup>1</sup>, Mickael Stefas<sup>3</sup>, Pierrick Bruneau<sup>3</sup>,  Gilles Adda<sup>1,6</sup>, Laurent Besacier<sup>2</sup>,  Hazim Ekenel<sup>4</sup>, Javier Hernando<sup>5</sup>, Joseph Mariani<sup>1,6</sup>, Ramon Morros<sup>5</sup>, Georges Quénot<sup>2</sup>, Thomas Tamisier<sup>3</sup>
+### Johann Poignant<sup>1</sup>, Mateusz Budnik<sup>2</sup>, Hervé Bredin<sup>1</sup>, Claude Barras<sup>1</sup>, Mickael Stefas<sup>3</sup>, Pierrick Bruneau<sup>3</sup>,  Gilles Adda<sup>1,6</sup>, Laurent Besacier<sup>2</sup>,  Hazim Ekenel<sup>4</sup>, Gil Francopoulo<sup>6</sup>, Javier Hernando<sup>5</sup>, Joseph Mariani<sup>1,6</sup>, Ramon Morros<sup>5</sup>, Georges Quénot<sup>2</sup>, Thomas Tamisier<sup>3</sup>
 
 1. LIMSI, CNRS, Univ. Paris-Sud, Université Paris-Saclay, F-91405 Orsay
 2. LIG, Univ. Grenoble Alpes, Grenoble, France
@@ -26,14 +26,14 @@ In this paper, we first describe the organization and the implementation of the 
 
 Aiming for a flexible development and use, the collaborative annotation framework is implemented using state of the art web-based technologies, namely libraries and tools developed mostly in Javascript and Python. The ultimate purpose of the platform is to provide on demand overviews and details regarding the 3M data, and the associated automatic and manual annotations. Some views would be dedicated to the fine-grain inspection of annotation files, while some others would serve some higher-level task, such as summarizing the media of a specific corpus according to the exhaustiveness of their associated annotations, or the performance of the algorithms to infer the latter. Multiple users may be involved, synchronously or asynchronously, and with several roles (manual annotators, recognition algorithm developer, adjudicator). Web-based technologies and Javascript already comprise many building blocks suitable for supporting this kind of collaborative behavior. As illustrated in Figure 1, the proposed collaborative annotation framework follows a client/server architecture. This paradigm facilitates the work of multiple users on consistent data sources, as required by the project specifics. The involved server-side technologies rely solely on exchanges via the HTTP protocol, facilitating the design of interoperable software components. The server focuses essentially on data and authentication management tasks, leaving the application logic to the client side. The aim of doing so is to design a general and consistent service, allowing the agile development of browser-based clients, each implemented according to a concrete use-case (e.g., annotation, error analysis…).
 
-![CAMOMILE client-server platform](figs/archi.png =400x)
+![CAMOMILE client-server platform](figs/archi.png)
 
 **Figure 1: CAMOMILE client-server platform**
 
 There are two main reasons that made us implement client/server interfaces using REST services. First, in the REST architecture style, clients and servers exchange representations of resources using a standardized interface and protocol. These principles encourage RESTful applications to be simple, lightweight, and have high performance. Second, RESTful web services typically map the four main HTTP methods to perform predefined operations: GET, PUT, DELETE, and POST. These operations can fulfill the needs of annotating 3M data, such as create, read, update or delete annotations.
 Resources are the fundamental concept in any RESTful API, and thus they need to be specified (as collections, tables, relationships between them) before designing REST API services. In our framework, resources are annotations, which are represented in JSON formats, stored in a MongoDB database. Based on the use cases designed in the CAMOMILE project, we specify the following collections (i.e. tables in traditional database systems) for our application: corpus, media, layers, annotations. The corpus collection describes all available corpora. Each corpus contains a set of media and a set of layer. A medium corresponds to a multimedia resource (e.g., a video or audio file). A layer is composed of multiple annotations with the same type (e.g. one layer for manual annotations of speech turns or one layer for annotations of face tracks). An annotation is uniquely defined by a media fragment (e.g., a temporal segment) and attached data (e.g. the name of the current speaker).
 
-![CAMOMILE server data model](figs/model.png =500x)
+![CAMOMILE server data model](figs/model.png)
 
 **Figure 2: CAMOMILE server data model**
 
@@ -54,7 +54,7 @@ Automatically generated segments of a multimedia resource are used as queries. T
 
 After a segment is annotated by the user the cluster structure is modified accordingly. For example, two clusters that contain segments with the same name are merged. On the other hand, a cluster which contains segments with different labels is divided. A label assigned to a segment within a cluster is propagated to all of its unlabeled members. 
 
-![AL diagram](figs/AL_diagram.png =300x)
+![AL diagram](figs/AL_diagram.png)
 
 **Figure 3: Active learning system**
 
@@ -68,29 +68,18 @@ The purpose of the CAMOMILE project has been to explore new practices around col
         
 ## Acknowledgements
 
-We thank the members of the CAMOMILE international advisory committee for their time and their precious advices and proposals.
-
-This work was done in the context of the CHIST-ERA CAMOMILE project
-funded by the ANR (Agence Nationale de la Recherche, France), the FNR
-(Fonds National de La Recherche, Luxembourg), Tübitak (scientific
-and technological research council of Turkey) and Mineco (Ministerio de Economía y Competitividad, Spain)
+We thank the members of the CAMOMILE international advisory committee for their time and their precious advices and proposals. This work was done in the context of the CHIST-ERA CAMOMILE project funded by the ANR (Agence Nationale de la Recherche, France), the FNR (Fonds National de La Recherche, Luxembourg), Tübitak (scientific and technological research council of Turkey) and Mineco (Ministerio de Economía y Competitividad, Spain)
 
 
 ## References
 
-[1] K. Maeda & S. Strassel. Annotation Tools for Large-Scale Corpus Development: Using AGTK at the Linguistic Data Consortium. LREC 2004.
-[2] M. Kipp (2001) Anvil - A Generic Annotation Tool for Multimodal Dialogue. Proceedings of the 7th European Conference on Speech Communication and Technology (Eurospeech), pp. 1367-1370. 
-
-[3] O. Aubert, Y. Prié (2007) Advene: an open-source framework for integrating and visualising audiovisual metadata. Open Source Competition: Technical presentation and overview paper. Proc. of ACM Multimedia Conference, Augsburg, sept. 2007
-
-[4] D. Mihalcik, ViPER Toolkit Home Page. http://viper-toolkit/sourceforge.net/ 
-
-[5] E. Auer, A. Russel, H. Sloetjes, P. Wittenburg, O. Schreer, S. Masnieri, D. Schneider, S. Tshöpel. ELAN as Flexible Annotation Framework for Sound and Image Processing Detectors, LREC 2010.
-
-[6] S. Bird and M. Liberman, “A Formal Framework for Linguistic Annotation,” Speech Communication, vol. 33, no. 1–2, pp. 23–60, Jan. 2001.
-
-[7] META-SHARE, <http://www.meta-net.eu/meta-share>
-
+[1] K. Maeda & S. Strassel. Annotation Tools for Large-Scale Corpus Development: Using AGTK at the Linguistic Data Consortium. LREC 2004.  
+[2] M. Kipp (2001) Anvil - A Generic Annotation Tool for Multimodal Dialogue. Proceedings of the 7th European Conference on Speech Communication and Technology (Eurospeech), pp. 1367-1370.  
+[3] O. Aubert, Y. Prié (2007) Advene: an open-source framework for integrating and visualising audiovisual metadata. Open Source Competition: Technical presentation and overview paper. Proc. of ACM Multimedia Conference, Augsburg, sept. 2007  
+[4] D. Mihalcik, ViPER Toolkit Home Page. http://viper-toolkit/sourceforge.net/  
+[5] E. Auer, A. Russel, H. Sloetjes, P. Wittenburg, O. Schreer, S. Masnieri, D. Schneider, S. Tshöpel. ELAN as Flexible Annotation Framework for Sound and Image Processing Detectors, LREC 2010.  
+[6] S. Bird and M. Liberman, “A Formal Framework for Linguistic Annotation,” Speech Communication, vol. 33, no. 1–2, pp. 23–60, Jan. 2001.  
+[7] META-SHARE, <http://www.meta-net.eu/meta-share>  
 [8] J. Poignant et al. Submitted to LREC 2016.
 
 
