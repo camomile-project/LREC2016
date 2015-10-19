@@ -2,7 +2,11 @@
 
 # Workflow management for a multimodal technology evaluation involving collaborative annotation
 
-### Johann Poignant, Hervé Bredin, Claude Barras, Mickael Stefas, Pierrick Bruneau, Thomas Tamisier
+### Johann Poignant<sup>1</sup>, Hervé Bredin<sup>1</sup>, Claude Barras<sup>1</sup>, Mickael Stefas<sup>2</sup>, Pierrick Bruneau<sup>2</sup>, Thomas Tamisier<sup>2</sup>
+
+1. LIMSI, CNRS, Univ. Paris-Sud, Université Paris-Saclay, F-91405 Orsay
+2. LIST, Esch-sur-Alzette, Luxembourg 
+
 
 ## Introduction
 

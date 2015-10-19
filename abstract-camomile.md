@@ -1,14 +1,14 @@
 # The CAMOMILE collaborative annotation platform
 
 
-### Johann Poignant ^1, Mateusz Budnik ^2, Hervé Bredin ^1, Claude Barras ^1, Mickael Stefas ^3, Pierrick Bruneau ^3,  Gilles Adda ^1, Laurent Besacier ^2,  Hazim Ekenel ^4, Javier Hernando ^5, Joseph Mariani ^6, Ramon Morros ^5, Georges Quénot ^2, Thomas Tamisier ^3
+### Johann Poignant<sup>1</sup>, Mateusz Budnik<sup>2</sup>, Hervé Bredin<sup>1</sup>, Claude Barras<sup>1</sup>, Mickael Stefas<sup>3</sup>, Pierrick Bruneau<sup>3</sup>,  Gilles Adda<sup>1</sup>, Laurent Besacier<sup>2</sup>,  Hazim Ekenel<sup>4</sup>, Javier Hernando<sup>5</sup>, Joseph Mariani<sup>6</sup>, Ramon Morros<sup>5</sup>, Georges Quénot<sup>2</sup>, Thomas Tamisier<sup>3</sup>
 
-(1) LIMSI, CNRS, Univ. Paris-Sud, Université Paris-Saclay, F-91405 Orsay
-(2) LIG, Univ. Grenoble Alpes, Grenoble, France
-(3) LIST, Esch-sur-Alzette, Luxembourg 
-(4) ITÜ, Istanbul, Turkey
-(5) UPC, Barcelona, Spain
-(6) IMMI-CNRS, Orsay, France
+1. LIMSI, CNRS, Univ. Paris-Sud, Université Paris-Saclay, F-91405 Orsay
+2. LIG, Univ. Grenoble Alpes, Grenoble, France
+3. LIST, Esch-sur-Alzette, Luxembourg 
+4. ITÜ, Istanbul, Turkey
+5. UPC, Barcelona, Spain
+6. IMMI-CNRS, Orsay, France
 
 ## Introduction
 
