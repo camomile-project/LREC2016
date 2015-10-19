@@ -5,7 +5,7 @@
 ### Johann Poignant<sup>1</sup>, Hervé Bredin<sup>1</sup>, Claude Barras<sup>1</sup>, Mickael Stefas<sup>2</sup>, Pierrick Bruneau<sup>2</sup>, Thomas Tamisier<sup>2</sup>
 
 1. LIMSI, CNRS, Univ. Paris-Sud, Université Paris-Saclay, F-91405 Orsay
-2. LIST, Esch-sur-Alzette, Luxembourg 
+2. LIST, Esch-sur-Alzette, Luxembourg
 
 
 ## Introduction
@@ -86,65 +86,70 @@ interested reader can refer to [3].
 The CAMOMILE platform was initially developed for supporting collaborative
 annotation of multimodal, multilingual and multimedia data [4]. The data model
 was kept intentionally simple and generic, with four types of resources:
-corpus, medium, layer and annotation. A corpus is a set of media (e.g. the
+corpus, medium, layer and annotation.
+
+A corpus is a set of media (e.g. the
 evaluation corpus made of all test videos). An annotation is defined by a
 fragment of a medium (e.g. a shot) with an attached metadata (e.g. the name
 of the current speaker). Finally, a layer is an homogeneous set of annotations,
 sharing the same fragment type and the same metadata type (e.g. a complete run
 submitted by one participant). All these resources are accessible through a
 RESTful API (clients in Python and Javascript are readily available), with user
-authentication and permission management. A generic queueing mechanism is also
+authentication and permission management.
+
+A generic queueing mechanism is also
 available on the CAMOMILE backend as a means to control the workflow. The
 CAMOMILE platform is distributed as open-source software at the following
 address: <http://github.com/camomile-project/camomile-server>.
 
-### Automated workflow
+### Automating the benchmarking workflow
 
 The upper part of Figure 1 depicts the technical workflow of the proposed
-evaluation campaign -- while the lower part summarizes how we relied on the
-CAMOMILE platform and the Python and Javascript clients to automate most of the
-stages.
+evaluation campaign.
 
-![REST-API server](figs/workflow.png =850x)
+![REST-API server](figs/workflow.png)
 
-**Figure 1: Workflow**
+*Figure 1 - Workflow automation with the CAMOMILE platform*
 
-First, participants register to the task, raising the need for users and groups management.
-Secondly, data are released to participants, then, participants process the data with their algorithms and submit hypotheses.
-In parallel, manual annotations are done, possibly taking into account the participant submissions.
-These annotations can also in turn be used to train or tune the algorithms.
-Finally, the scoring is performed with the possibility to show the performance evolution during the development phase via a leaderboard.
+The lower parts of Figure 1 summarize how we relied on the CAMOMILE platform
+and its Python and Javascript clients to automate most steps.
 
-Around the server, we developed Python scripts and web interfaces to implement
+We developed Python scripts and web interfaces to implement
 the workflow of the task (see the lower part of the figure 1).
 
+**Registration.** After the task was advertised through the MediaEval call for
+participation, we relied on MediaEval standard registration procedure (i.e.
+filling an online form and signing dataset usage agreements) to gather the list
+of participating teams. Through a web interface, users and groups management
+features of the CAMOMILE platform were used to create one group per team and
+one user account for each team member.
+
+**Distribution.**  Due to technical (limited internet bandwith) or copyright
+concerns (datasets distributed by third parties), the development and
+evaluation datasets were not distributed through the CAMOMILE platform.
+Instead, ELDA and INA took care of sending the datasets to the participants.
+Nevertheless, corresponding corpora (for the development and the test sets)
+and layers (for each video) were created as CAMOMILE resources with READ
+permissions for each team.
+
+**Submission.**  While the standard MediaEval submission procedure is to ask
+participating teams to upload their runs into a shared online directory, we
+chose to distribute to all participants a submission management tool, based on
+the CAMOMILE Python client. This command line tool would automatically check
+the format of the submission files, authenticate users with their CAMOMILE
+credentials and creates a new layer (and associated annotations) for each
+submission, with read/write permissions to (and only to) every team member.
+
+**Evaluation.** Finally, another Python script would score submitted runs on a subset of the annotations. The scores obtained were displayed in a leaderboard updated every 6 hours. This information allowed the participants to tune their algorithms during the development phase of the campaign.
+
+
 For other task organisation, some of these modules can be re-used as they are (users and groups management) or adapted (annotation interfaces, monitoring of annotations, leaderboard)
+The collaborative annotation is specific, though.
 
-#### Registration
-
-Once the participant were registered, a web administration interface was used to create user accounts and groups for each team.
-
-#### Distribution
-
-Note that due to
-bandwidth issues or distribution right concerns, the development and evaluation
-dataset were distributed independently of this framework but were nonetheless
-accessible from the web interfaces.
-
-#### Submission
-
- The participants could then use the command line submission script to submit or update their runs. This script, in addition to check the correctness of the submission, connects to the CAMOMILE server and creates a new hypothesis layer for each submission.
-
-#### Collaborative annotation
+### Collaborative annotation
 
 As already noted, this process implies numerous information transfers between the evaluation organizer, participants and annotators. If a human intervention is needed to process the submission of a participant and return the scoring, it will prevent a comprehensive and fast overview of the state of the campaign (number of submissions and their versioning, annotations status, evolution of the scores …). The annotation has also to be performed on different sites in a collaborative way. The coordination of the annotations and the scoring of the different submissions could be largely automated, relying on the CAMOMILE framework, specific annotation interfaces and a set of background services which are all distributed in open source
 ([https://github.com/camomile-project/camomile-server](https://github.com/camomile-project/camomile-server)]).
-
-#### Evaluation
-
-Finally, another Python script would score submitted runs on a subset of the annotations. The scores obtained were displayed in a leaderboard updated every 6 hours. This information allowed the participants to tune their algorithms during the development phase of the campaign.
-
-### Collaborative annotation
 
 For this evaluation, the manual annotation relied on the participant submissions. Regularly, a Python script would fetch all the hypotheses stored on the server and filled a queue with the annotations to do. Two web interfaces were used successively to produce the annotations. The first one was used to check the correctness of hypothesized evidences. When correct, the annotator was asked to draw a bounding box around the face to generate a mugshot later used as a basis for comparison (to overcome the language dependencies for the rest of the annotation process). The first annotation step for evidences was performed by three annotators with around 7337 annotations done (see Table 1). Audio evidences have taken longer en average as we need to listen the whole shot plus 10 seconds around while for image we just have to find the image where the name is written on screen (TODO: define image vs. audio evidence).
 
