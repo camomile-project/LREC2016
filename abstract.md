@@ -19,6 +19,8 @@ Recognition Challenge [X]), video (TRECVID [X]) or multimedia indexing
 experimental research in fields where human perception and decision must be
 reproduced by machine learning algorithms [2].
 <!-- on large databases of annotated representative samples. -->
+<!-- ref are missing -->
+
 
 The general workflow of *à la NIST* evaluation campaigns comprises the
 following stages [1]: specification of the task; definition of the evaluation
@@ -146,6 +148,8 @@ Finally, another Python script would score submitted runs on a subset of the ann
 
 For this evaluation, the manual annotation relied on the participant submissions. Regularly, a Python script would fetch all the hypotheses stored on the server and filled a queue with the annotations to do. Two web interfaces were used successively to produce the annotations. The first one was used to check the correctness of hypothesized evidences. When correct, the annotator was asked to draw a bounding box around the face to generate a mugshot later used as a basis for comparison (to overcome the language dependencies for the rest of the annotation process). The first annotation step for evidences was performed by three annotators with around 7337 annotations done (see Table 1). Audio evidences have taken longer en average as we need to listen the whole shot plus 10 seconds around while for image we just have to find the image where the name is written on screen (TODO: define image vs. audio evidence).
 
+<!-- merge audio and image evidence in the table/text ? -->
+
 In the second interface, we asked, for a particular shot, if an hypothesis (via its mugshot) is a speaking face (i.e. a person simultaneously visible and speaking during the shot). Due to the size of the corpus we asked to the participants to help us for these annotations. 20 persons participated for 66089 shots annotated with a median duration of 4.4 seconds. A monitoring interface allowed us to follow the proportion of annotations already done.
 
 |                                              | image evidences | audio evidences |   Label   |
@@ -180,6 +184,8 @@ In the next table we detailed the number of annotations per shot that was done t
 ## Conclusions and perspectives
 
 The management of the evaluation campaign described in this paper, including the development of the Python scripts and web interfaces specific to the campaign, was performed within a 6-month period by roughly 2 full-time person. It was made possible by taking advantage of the distributed annotation server with access control along with other inteThe server resisted the load. All the script and interfaces related to this campaign are publicly available. Even if they were designed specifically for the chosen task, we believe that a significant part of the approach is generic and can be ported to a different task involving manual and automatic annotation of audio-visual corpora.
+
+<!-- for the "6-month period by roughly 2 full-time person", I think is less that this, Hervé also worked on the server and I worked on the baseline -->
 
 ## Acknowledgements
 
