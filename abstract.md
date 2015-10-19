@@ -103,7 +103,7 @@ evaluation campaign -- while the lower part summarizes how we relied on the
 CAMOMILE platform and the Python and Javascript clients to automate most of the
 stages.
 
-![REST-API server](figs/workflow.png)
+![REST-API server](figs/workflow.png =850x)
 
 **Figure 1: Workflow**
 
