@@ -63,7 +63,7 @@ correct person -- making the task completely unsupervised with respect to prior
 biometric models.
 
 To ensure that participants followed this strict ``no biometric supervision''
-constraint, each hypothesized name had to be backed up by an ``evidence'': a
+constraint, each hypothesized name had to be backed up by an`` evidence'': a
 unique and carefully selected shot prooving that the person actually holds this
 name (e.g. a shot showing a text overlay introducing the person by their name).
 In real-world conditions, this evidence would help a human annotator
