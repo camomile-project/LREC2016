@@ -1,6 +1,4 @@
-# Multimedia technology benchmark made easy with the CAMOMILE platform. Feedback from the MediaEval 2015 Multimodal Person Discovery task.
-
-# Workflow management for a multimodal technology evaluation involving collaborative annotation
+# Benchmarking multimedia technology with the CAMOMILE platform: the case of Multimodal Person Discovery at MediaEval 2015.
 
 ### Johann Poignant<sup>1</sup>, Hervé Bredin<sup>1</sup>, Claude Barras<sup>1</sup>, Mickael Stefas<sup>2</sup>, Pierrick Bruneau<sup>2</sup>, Thomas Tamisier<sup>2</sup>
 
