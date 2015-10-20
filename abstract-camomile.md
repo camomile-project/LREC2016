@@ -1,4 +1,4 @@
-# The CAMOMILE collaborative annotation platform
+# The CAMOMILE collaborative annotation platform for multi-modal, multi-lingual and multi-media documents
 
 
 ### Johann Poignant<sup>1</sup>, Mateusz Budnik<sup>2</sup>, Hervé Bredin<sup>1</sup>, Claude Barras<sup>1</sup>, Mickael Stefas<sup>3</sup>, Pierrick Bruneau<sup>3</sup>,  Gilles Adda<sup>1,6</sup>, Laurent Besacier<sup>2</sup>,  Hazim Ekenel<sup>4</sup>, Gil Francopoulo<sup>6</sup>, Javier Hernando<sup>5</sup>, Joseph Mariani<sup>1,6</sup>, Ramon Morros<sup>5</sup>, Georges Quénot<sup>2</sup>, Thomas Tamisier<sup>3</sup>
@@ -14,7 +14,7 @@
 
 Human activity is generating growing volumes of heterogeneous data, available in particular via the Web. Multimodal, multimedia, multilingual (3M) data can be collected and explored to gain new insights in social sciences, linguistics, economics, behavioural studies as well as artificial intelligence and computer sciences. But to be analyzed through statistical-based machine learning methods, these data should be available in very large amounts and annotated. Annotating data is costly as it involves manual work, and in this regard 3M data, for which we need to annotate different modalities with different levels of abstraction is especially costly.
 
-Current annotation frameworks often involve a local manual annotation [1-4] sometimes supported by automatic processings [5]. In this case, dealing with multiple annotators and different versions of the annotation files quickly becomes infeasible. 
+Current annotation frameworks often involve a local manual annotation [1-3] sometimes supported by automatic processings [4]. In this case, dealing with multiple annotators and different versions of the annotation files quickly becomes infeasible. 
 Browser-based annotations interfaces, linked to a server for storing the annotations, can provide a solution to this problem, all the more so as browser performance and multimedia support dramatically improved in the recent years; this is a direction taken by LDC with its WebAnn initiative.
 
 In the context of the CHIST-ERA CAMOMILE project (Collaborative Annotation of multi-MOdal, multI-Lingual and multi-mEdia documents), we developed a collaborative annotation framework for 3M data.
@@ -64,22 +64,21 @@ The annotations processed by the users are pushed to the output queue. Because t
 
 ## Conclusions
 
-The purpose of the CAMOMILE project has been to explore new practices around collaborative annotation and test it on specific use cases with dedicated prototypes. The developed framework can be summerized as a remote repository of annotations which are metadata attached to fragments of the media from a corpus, along with the associated RESTful API. It is thus compatible with other abstraction layers, e.g., annotation graphs [6], and the metadata can follow standards in the domain as proposed in the META-SHARE initiative [7]. This simple framework was robust enough to support the active learning scenario described in this paper, as long as the organization of a MediaEval task with 20 annotators involved [8]. Further developments would improve the platform, like a direct communication between the clients through WebSockets or a flexible historization of the annotations.
+The purpose of the CAMOMILE project has been to explore new practices around collaborative annotation and test it on specific use cases with dedicated prototypes. The developed framework can be summerized as a remote repository of annotations which are metadata attached to fragments of the media from a corpus, along with the associated RESTful API. It is thus compatible with other abstraction layers, e.g., annotation graphs [5], and the metadata can follow standards in the domain as proposed in the META-SHARE initiative [6]. This simple framework was robust enough to support the active learning scenario described in this paper, as long as the organization of a MediaEval task with 20 annotators involved [7]. Further developments would improve the platform, like a direct communication between the clients through WebSockets or a flexible historization of the annotations.
         
 ## Acknowledgements
 
-We thank the members of the CAMOMILE international advisory committee for their time and their precious advices and proposals. This work was done in the context of the CHIST-ERA CAMOMILE project funded by the ANR (Agence Nationale de la Recherche, France), the FNR (Fonds National de La Recherche, Luxembourg), Tübitak (scientific and technological research council of Turkey) and Mineco (Ministerio de Economía y Competitividad, Spain)
+We thank the members of the CAMOMILE international advisory committee for their time and their precious advices and proposals. This work was done in the context of the CHIST-ERA CAMOMILE project funded by the ANR (Agence Nationale de la Recherche, France), the FNR (Fonds National de La Recherche, Luxembourg), Tübitak (scientific and technological research council of Turkey) and Mineco (Ministerio de Economía y Competitividad, Spain).
 
 
 ## References
 
 [1] K. Maeda & S. Strassel. Annotation Tools for Large-Scale Corpus Development: Using AGTK at the Linguistic Data Consortium. LREC 2004.  
 [2] M. Kipp (2001) Anvil - A Generic Annotation Tool for Multimodal Dialogue. Proceedings of the 7th European Conference on Speech Communication and Technology (Eurospeech), pp. 1367-1370.  
-[3] O. Aubert, Y. Prié (2007) Advene: an open-source framework for integrating and visualising audiovisual metadata. Open Source Competition: Technical presentation and overview paper. Proc. of ACM Multimedia Conference, Augsburg, sept. 2007  
-[4] D. Mihalcik, ViPER Toolkit Home Page. http://viper-toolkit/sourceforge.net/  
-[5] E. Auer, A. Russel, H. Sloetjes, P. Wittenburg, O. Schreer, S. Masnieri, D. Schneider, S. Tshöpel. ELAN as Flexible Annotation Framework for Sound and Image Processing Detectors, LREC 2010.  
-[6] S. Bird and M. Liberman, “A Formal Framework for Linguistic Annotation,” Speech Communication, vol. 33, no. 1–2, pp. 23–60, Jan. 2001.  
-[7] META-SHARE, <http://www.meta-net.eu/meta-share>  
-[8] J. Poignant et al. Submitted to LREC 2016.
+[3] D. Mihalcik, ViPER Toolkit Home Page. http://viper-toolkit/sourceforge.net/  
+[4] E. Auer, A. Russel, H. Sloetjes, P. Wittenburg, O. Schreer, S. Masnieri, D. Schneider, S. Tshöpel. ELAN as Flexible Annotation Framework for Sound and Image Processing Detectors, LREC 2010.  
+[5] S. Bird and M. Liberman, “A Formal Framework for Linguistic Annotation,” Speech Communication, vol. 33, no. 1–2, pp. 23–60, Jan. 2001.  
+[6] META-SHARE, <http://www.meta-net.eu/meta-share>  
+[7] J. Poignant et al. Submitted to LREC 2016.
 
 
