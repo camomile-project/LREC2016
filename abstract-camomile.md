@@ -64,11 +64,7 @@ The annotations processed by the users are pushed to the output queue. Because t
 
 ## Conclusions
 
-<<<<<<< Updated upstream
-The purpose of the CAMOMILE project has been to explore new practices around collaborative annotation and test it on specific use cases with dedicated prototypes. The developed framework can be summerized as a remote repository of annotations which are metadata attached to fragments of the media from a corpus, along with the associated RESTful API. It is thus compatible with other abstraction layers, e.g., annotation graphs [5], and the metadata can follow standards in the domain as proposed in the META-SHARE initiative [6]. This simple framework was robust enough to support the active learning scenario described in this paper, as long as the organization of a MediaEval task with 20 annotators involved [7]. Further developments would improve the platform, like a direct communication between the clients through WebSockets or a flexible historization of the annotations.
-=======
 The purpose of the CAMOMILE project has been to explore new practices around collaborative annotation and test it on specific use cases with dedicated prototypes. The developed framework can be summerized as a remote repository of annotations which are metadata attached to fragments of the media from a corpus, along with the associated RESTful API. It is thus compatible with other abstraction layers, e.g., annotation graphs [6], and the metadata can follow standards in the domain as proposed in the META-SHARE initiative [7]. This simple framework was robust enough to support the active learning scenario described in this paper, as long as the organization of a MediaEval task with 20 annotators involved (73426 annotations) [8] . Further developments would improve the platform, like a direct communication between the clients through WebSockets or a flexible historization of the annotations.
->>>>>>> Stashed changes
         
 ## Acknowledgements
 
