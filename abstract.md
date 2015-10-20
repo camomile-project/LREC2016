@@ -173,7 +173,7 @@ half of the evaluation corpus in less than a month.
 | # annotations   |     7337 | 66089 |
 | Median duration |    10.2s |  4.4s |
 
-**Table 1: Amount and median duration of annotations for both interfaces**
+*Table 1 - Amount and median duration of annotations for both interfaces*
 
 While the annotation of ''evidences'' was done by the organizers themselves,
 we wanted to guarantee the quality of the ''labels'' annotation done by the
@@ -189,7 +189,7 @@ for each shot is close to the minimum (2).
 | with consensus      | 27873 ( 98.7%) |
 | without consensus   |   358 (  1.3%) |
 
-**Table 2: Proportion of shots with/without consensus**
+*Table 2 - Proportion of shots with/without consensus*
 
 | # annotations |    # shots    |
 |---------------|:-------------:|
@@ -198,7 +198,7 @@ for each shot is close to the minimum (2).
 | 4             |   658 ( 2.4%) |
 | 5+            |   188 ( 0.6%) |
 
-**Table 3: Number of annotations per shot with consensus**
+*Table 3 - Number of annotations per shot with consensus*
 
 A quick look at the few shots with 4 or more annotations reveals a few
 ambiguous cases that were not forecast when designing the ''label'' annotation
