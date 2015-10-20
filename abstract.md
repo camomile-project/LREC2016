@@ -222,9 +222,10 @@ where manual and automatic annotation of audio-visual corpora is involved.
 
 ## Acknowledgements
 
-This work was supported by the French National Agency for Research under grant
-ANR-12-CHRI-0006-01 (CAMOMILE project). We thank ELDA and INA for supporting
-the task with development and test datasets.
+This work was supported by France ''Agence Nationale de la Recherche''
+(ANR) under grant ANR-12-CHRI-0006-01 and Luxembourg ''Fonds National de la
+Recherche'' (FNR). We thank ELDA and INA for supporting the task with
+development and evaluation datasets.
 
 ## References
 
