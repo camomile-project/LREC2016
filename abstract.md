@@ -21,7 +21,6 @@ reproduced by machine learning algorithms [2].
 <!-- on large databases of annotated representative samples. -->
 <!-- ref are missing -->
 
-
 The general workflow of *à la NIST* evaluation campaigns comprises the
 following stages [1]: specification of the task; definition of the evaluation
 metric and provision of an automatic scoring software; design and annotation of
@@ -64,8 +63,8 @@ finding their name in the audio (using speech transcription - ASR) or visual
 correct person -- making the task completely unsupervised with respect to prior
 biometric models.
 
-To ensure that participants followed this strict ``no biometric supervision''
-constraint, each hypothesized name had to be backed up by an`` evidence'': a
+To ensure that participants followed this strict ''no biometric supervision''
+constraint, each hypothesized name had to be backed up by an ''evidence'': a
 unique and carefully selected shot prooving that the person actually holds this
 name (e.g. a shot showing a text overlay introducing the person by their name).
 In real-world conditions, this evidence would help a human annotator
@@ -112,10 +111,7 @@ evaluation campaign.
 *Figure 1 - Workflow automation with the CAMOMILE platform*
 
 The lower parts of Figure 1 summarize how we relied on the CAMOMILE platform
-and its Python and Javascript clients to automate most steps.
-
-We developed Python scripts and web interfaces to implement
-the workflow of the task (see the lower part of the figure 1).
+and its Python and Javascript clients to automate most of the workflow.
 
 **Registration.** After the task was advertised through the MediaEval call for
 participation, we relied on MediaEval standard registration procedure (i.e.
@@ -140,51 +136,83 @@ the format of the submission files, authenticate users with their CAMOMILE
 credentials and creates a new layer (and associated annotations) for each
 submission, with read/write permissions to (and only to) every team member.
 
-**Evaluation.** Finally, another Python script would score submitted runs on a subset of the annotations. The scores obtained were displayed in a leaderboard updated every 6 hours. This information allowed the participants to tune their algorithms during the development phase of the campaign.
+**Evaluation.** For the duration of the submission period, a continuous
+evaluation service based on the CAMOMILE Python client would update a live
+leaderboard computed on a secret subset of the evaluation dataset -- providing
+feedback to participants about the performance of their current submissions.
 
-
-For other task organisation, some of these modules can be re-used as they are (users and groups management) or adapted (annotation interfaces, monitoring of annotations, leaderboard)
-The collaborative annotation is specific, though.
+These four modules could easily be adapted to other benchmarking campaigns, as
+long as the reference and submissions can follow the CAMOMILE data model.
 
 ### Collaborative annotation
 
-As already noted, this process implies numerous information transfers between the evaluation organizer, participants and annotators. If a human intervention is needed to process the submission of a participant and return the scoring, it will prevent a comprehensive and fast overview of the state of the campaign (number of submissions and their versioning, annotations status, evolution of the scores …). The annotation has also to be performed on different sites in a collaborative way. The coordination of the annotations and the scoring of the different submissions could be largely automated, relying on the CAMOMILE framework, specific annotation interfaces and a set of background services which are all distributed in open source
-([https://github.com/camomile-project/camomile-server](https://github.com/camomile-project/camomile-server)]).
+While the development dataset had already been annotated in the framework of
+the past REPERE evaluation campaigns, the evaluation dataset was distributed by
+INA without any annotation. Thanks to the CAMOMILE platform, we were able to
+setup a collaborative annotation campaign where participants themselves would
+contribute some time to annotation the evaluation dataset.
 
-For this evaluation, the manual annotation relied on the participant submissions. Regularly, a Python script would fetch all the hypotheses stored on the server and filled a queue with the annotations to do. Two web interfaces were used successively to produce the annotations. The first one was used to check the correctness of hypothesized evidences. When correct, the annotator was asked to draw a bounding box around the face to generate a mugshot later used as a basis for comparison (to overcome the language dependencies for the rest of the annotation process). The first annotation step for evidences was performed by three annotators with around 7337 annotations done (see Table 1). Audio evidences have taken longer en average as we need to listen the whole shot plus 10 seconds around while for image we just have to find the image where the name is written on screen (TODO: define image vs. audio evidence).
+Two dedicated and complementary annotation web interfaces were developed, both
+based on the CAMOMILE Javascript client. The first one is dedicated to the
+correction of the ''evidences'' submitted by participants. For each correct
+evidence, annotators had to draw a bounding box around the face of the person
+and spellcheck their hypothesized name (firstname_lastname). The second one
+relies on the resulting mugshots to ask the annotator to decide visually if
+the hypothesized person is actually speaking and visible during a video shot.
 
-<!-- merge audio and image evidence in the table/text ? -->
+Both annotation interfaces relied on the CAMOMILE queueing feature, thanks to
+a submission monitoring service that would continuously watch for new
+submissions and update annotation queues accordingly. Moreover, a monitoring
+interface was also accessible to the organizers to quickly gain insight into
+the status of the annotation campaign (e.g. number of shots already annotated).
 
-In the second interface, we asked, for a particular shot, if an hypothesis (via its mugshot) is a speaking face (i.e. a person simultaneously visible and speaking during the shot). Due to the size of the corpus we asked to the participants to help us for these annotations. 20 persons participated for 66089 shots annotated with a median duration of 4.4 seconds. A monitoring interface allowed us to follow the proportion of annotations already done.
+Table 1 summarizes the amount of work done during the annotation campaign.
+7k+ ''evidence'' annotations were performed by 3 organizers while 66k+ ''label''
+annotations were gathered from 20 team members -- leading to the annotation of
+half of the evaluation corpus in less than a month.
 
-|                                              | image evidences | audio evidences |   Label   |
-|----------------------------------------------|:---------------:|:---------------:|:---------:|
-| # annotator                                  |          3      |         3       |      20   |
-| # annotation                                 |       4908      |      2429       |   66089   |
-| median duration of the annotation in seconds |        6.6      |      17.6       |     4.4   |
+|                 | Evidence | Label |
+|-----------------|:--------:|:-----:|
+| # annotators    |        3 |    20 |
+| # annotations   |     7337 | 66089 |
+| Median duration |    10.2s |  4.4s |
 
-**Table 1: number of annotation and median duration for the two web interface**
+**Table 1: Amount and median duration of annotations for both interfaces**
 
-For this second annotation step we asked a minimum of 2 annotations per shot and a consensus between annotator to validate the annotation. 28231 shots have been annotated at least once, while 98.7% of them a consensus between annotator was reached and 1.3% not (this proportion should be reduced if we had enough time to add new annotations).
+<!-- |                            | image evidences | audio evidences |   Label   |
+|----------------------------|:---------------:|:---------------:|:---------:|
+| # annotators               |          3      |         3       |      20   |
+| # annotations              |       4908      |      2429       |   66089   |
+| annotation median duration |        6.6s      |      17.6s       |     4.4   | -->
 
-|                     |      # shots   |
+While the annotation of ''evidences'' was done by the organizers themselves,
+we wanted to guarantee the quality of the ''labels'' annotation done by the
+participants themselves. To that end, each shot was required to be annotated at
+least twice. Additional annotation of the same shot were requested until a
+consensus was found. Tables 2 and 3 show that, thanks to a simple, focused and
+dedicated ''label'' interface, the average number of required annotations
+for each shot is close to the minimum (2).
+
+|                     |     # shots    |
 |---------------------|:--------------:|
-| with at least 2 ann |  28231 (100%)  |
-| with a consensus    |  27873 (98.7%) |
-| without a consensus |    358 (1.3%)  |
+| with 2+ annotations | 28231 (100.0%) |
+| with consensus      | 27873 ( 98.7%) |
+| without consensus   |   358 (  1.3%) |
 
-**Table 2: number of shots annotated at least two time**
+**Table 2: Proportion of shots with/without consensus**
 
-In the next table we detailed the number of annotations per shot that was done to find the consensus. 15.3% of them required a third annotation to find the consensus, 2.4% required 4 annotations and 0.6% required more than 4 annotations. Which shows that in more than 5000 shots either the annotator was wrong or he was not agreement with the others. Number of cases revealed that the definition of a face speaking is sometimes ambiguous (singer, person doubled, difficulty understanding speech).
+| # annotations |    # shots    |
+|---------------|:-------------:|
+| 2             | 22770 (81.7%) |
+| 3             |  4257 (15.3%) |
+| 4             |   658 ( 2.4%) |
+| 5+            |   188 ( 0.6%) |
 
-| # annotations / shot |     # shot    |
-|----------------------|:-------------:|
-| 2                    | 22770 (81.7%) |
-| 3                    |  4257 (15.3%) |
-| 4                    |   658 (2.4%)  |
-| >4                   |   188 (0.6%)  |
+**Table 3: Number of annotations per shot with consensus**
 
-**table 3: number of annotations per shot with a consensus**
+A quick look at the few shots with 4 or more annotations reveals a few
+ambiguous cases that were not forecast when designing the ''label'' annotation
+interface: people singing or dubbed, barely audible speech, etc.
 
 ## Conclusions and perspectives
 
