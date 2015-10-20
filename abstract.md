@@ -7,7 +7,6 @@
 1. LIMSI, CNRS, Univ. Paris-Sud, Université Paris-Saclay, F-91405 Orsay
 2. LIST, Esch-sur-Alzette, Luxembourg
 
-
 ## Introduction
 
 For decades, NIST evaluation campaigns have been driving research in the field
@@ -18,8 +17,6 @@ Recognition Challenge [X]), video (TRECVID [X]) or multimedia indexing
 (MediaEval [X]). More generally, evaluation campaigns allow the assessment of
 experimental research in fields where human perception and decision must be
 reproduced by machine learning algorithms [2].
-<!-- on large databases of annotated representative samples. -->
-<!-- ref are missing -->
 
 The general workflow of *à la NIST* evaluation campaigns comprises the
 following stages [1]: specification of the task; definition of the evaluation
@@ -36,7 +33,6 @@ to pre-annotate the ever-increasing volume of multimedia data. A compromise
 has been successfully explored in the TREC and TRECVid campaigns, where
 the annotation of a small (but carefully chosen [5]) subset of the test data is
 bootstrapped by the participants' submissions.
-<!-- However, this adds a dependency between the different phases of the evaluation and makes the general process more complex (???). -->
 
 In this paper, we claim that the CAMOMILE collaborative annotation platform
 (developed in the framework of the eponymous CHIST-ERA project) eases the
@@ -179,12 +175,6 @@ half of the evaluation corpus in less than a month.
 
 **Table 1: Amount and median duration of annotations for both interfaces**
 
-<!-- |                            | image evidences | audio evidences |   Label   |
-|----------------------------|:---------------:|:---------------:|:---------:|
-| # annotators               |          3      |         3       |      20   |
-| # annotations              |       4908      |      2429       |   66089   |
-| annotation median duration |        6.6s      |      17.6s       |     4.4   | -->
-
 While the annotation of ''evidences'' was done by the organizers themselves,
 we wanted to guarantee the quality of the ''labels'' annotation done by the
 participants themselves. To that end, each shot was required to be annotated at
@@ -216,13 +206,25 @@ interface: people singing or dubbed, barely audible speech, etc.
 
 ## Conclusions and perspectives
 
-The management of the evaluation campaign described in this paper, including the development of the Python scripts and web interfaces specific to the campaign, was performed within a 6-month period by roughly 2 full-time person. It was made possible by taking advantage of the distributed annotation server with access control along with other inteThe server resisted the load. All the script and interfaces related to this campaign are publicly available. Even if they were designed specifically for the chosen task, we believe that a significant part of the approach is generic and can be ported to a different task involving manual and automatic annotation of audio-visual corpora.
+Relying entirely on the CAMOMILE annotation platform, a team of two persons was
+able to manage a large scale multimedia technology benchmark (10 teams,
+70 submissions, 30k shots) -- including the development of the submission
+management script, the leaderboard service and the whole annotation campaign.
+Everything was hosted on a virtual private server with 2 cores and 2 GB of RAM
+and resisted the load even during the peak submission time (right before the
+deadline) and the concurrent collaborative annotation period.
 
-<!-- for the "6-month period by roughly 2 full-time person", I think is less that this, Hervé also worked on the server and I worked on the baseline -->
+All the script and interfaces related to this campaign are publicly available
+on CAMOMILE GitHub page. Though some were designed specifically for the
+proposed MediaEval Person Discovery task, we believe that a significant part of
+the approach is generic enough to be easily ported to a different task
+where manual and automatic annotation of audio-visual corpora is involved.
 
 ## Acknowledgements
 
-This work was supported by the French National Agency for Research under grant ANR-12-CHRI-0006-01 (CAMOMILE project). We thank ELDA and INA for supporting the task with development and test datasets.
+This work was supported by the French National Agency for Research under grant
+ANR-12-CHRI-0006-01 (CAMOMILE project). We thank ELDA and INA for supporting
+the task with development and test datasets.
 
 ## References
 
