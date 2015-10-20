@@ -121,8 +121,8 @@ concerns (datasets distributed by third parties), the development and
 evaluation datasets were not distributed through the CAMOMILE platform.
 Instead, ELDA and INA took care of sending the datasets to the participants.
 Nevertheless, corresponding corpora (for the development and the test sets)
-and layers (for each video) were created as CAMOMILE resources with READ
-permissions for each team.
+and layers (for each video) were created as CAMOMILE resources with read
+permissions for each team, allowing them to access the local copy of the videos.
 
 **Submission.**  While the standard MediaEval submission procedure is to ask
 participating teams to upload their runs into a shared online directory, we
