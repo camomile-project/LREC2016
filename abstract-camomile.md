@@ -74,12 +74,19 @@ We thank the members of the CAMOMILE international advisory committee for their 
 ## References
 
 [1] K. Maeda & S. Strassel. Annotation Tools for Large-Scale Corpus Development: Using AGTK at the Linguistic Data Consortium. LREC 2004.  
+
 [2] M. Kipp (2001) Anvil - A Generic Annotation Tool for Multimodal Dialogue. Proceedings of the 7th European Conference on Speech Communication and Technology (Eurospeech), pp. 1367-1370.  
+
 [3] D. Mihalcik, ViPER Toolkit Home Page. http://viper-toolkit/sourceforge.net/  
+
 [4] E. Auer, A. Russel, H. Sloetjes, P. Wittenburg, O. Schreer, S. Masnieri, D. Schneider, S. Tshöpel. ELAN as Flexible Annotation Framework for Sound and Image Processing Detectors, LREC 2010. 
+
 [5] S. Ayache and G. Quénot, Video Corpus Annotation using Active Learning, In 30th European Conference on Information Retrieval (ECIR'08), Glasgow, Scotland, 30th March - 3rd April, 2008.
+
 [6] S. Bird and M. Liberman, “A Formal Framework for Linguistic Annotation,” Speech Communication, vol. 33, no. 1–2, pp. 23–60, Jan. 2001.  
+
 [7] META-SHARE, <http://www.meta-net.eu/meta-share>  
+
 [8] J. Poignant et al. Submitted to LREC 2016.
 
 
