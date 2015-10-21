@@ -58,13 +58,13 @@ After a segment is annotated by the user the cluster structure is modified accor
 
 **Figure 3: Active learning system**
 
-The AL system is connected to the collaborative annotation framework via the use of two different types of queues. The interaction between these two systems is shown in Figure 3. An input queue is filled with annotations, i.e. media fragments (see Figure 2), which are suggested by the AL algorithm for annotation. The task for the human annotator can be either identification, if the data field is empty (no label available yet to the fragment), or verification when a label is already assigned to the media fragment. The latter case can be used to verify the quality of automatically propagated labels or previous annotations done by humans. The most recent label given to a fragment is stored in the data field, while all the previous ones are added to the history list. This mechanism can be used for data cleaning and conflict resolution. From the input queue the annotations are distributed among the human annotators. Once a media fragment is assigned to a user, it is removed from the queue. 
+The AL system is connected to the collaborative annotation framework via the use of two different types of queues. The interaction between these two systems is shown in Figure 3. An input queue is filled with annotations, i.e. media fragments (see Figure 2), which are suggested by the AL algorithm for annotation. The task for the human annotator can be either identification, if the data field is empty (no label available yet to the fragment), or verification when a label is already assigned to the media fragment. The latter case can be used to verify the quality of automatically propagated labels or previous annotations done by humans. The most recent label given to a fragment is stored in the data field, while all the previous ones are added to the history list. This mechanism can be used for data cleaning and conflict resolution [6]. From the input queue the annotations are distributed among the human annotators. Once a media fragment is assigned to a user, it is removed from the queue. 
 
 The annotations processed by the users are pushed to the output queue. Because the media fragments are automatically generated, some may be noisy or may not contain any information related to the task (speech segments with only music or silence for example). They can be skipped by the user and will be stored separately and not be used by the AL system. The named annotations are removed from the output queue and used in the next step of the system. 
 
 ## Conclusions
 
-The purpose of the CAMOMILE project has been to explore new practices around collaborative annotation and test it on specific use cases with dedicated prototypes. The developed framework can be summerized as a remote repository of annotations which are metadata attached to fragments of the media from a corpus, along with the associated RESTful API. It is thus compatible with other abstraction layers, e.g., annotation graphs [6], and the metadata can follow standards in the domain as proposed in the META-SHARE initiative [7]. This simple framework was robust enough to support the active learning scenario described in this paper, as long as the organization of a MediaEval task with 20 annotators involved (73426 annotations) [8] . Further developments would improve the platform, like a direct communication between the clients through WebSockets or a flexible historization of the annotations.
+The purpose of the CAMOMILE project has been to explore new practices around collaborative annotation and test it on specific use cases with dedicated prototypes. The developed framework can be summerized as a remote repository of annotations which are metadata attached to fragments of the media from a corpus, along with the associated RESTful API. It is thus compatible with other abstraction layers, e.g., annotation graphs [7], and the metadata can follow standards in the domain as proposed in the META-SHARE initiative [8]. This simple framework was robust enough to support the active learning scenario described in this paper, as long as the organization of a MediaEval task with 20 annotators involved (73426 annotations) [9] . Further developments would improve the platform, like a direct communication between the clients through WebSockets or a flexible historization of the annotations.
         
 ## Acknowledgements
 
@@ -78,8 +78,9 @@ We thank the members of the CAMOMILE international advisory committee for their 
 [3] D. Mihalcik, ViPER Toolkit Home Page. http://viper-toolkit/sourceforge.net/  
 [4] E. Auer, A. Russel, H. Sloetjes, P. Wittenburg, O. Schreer, S. Masnieri, D. Schneider, S. Tshöpel. ELAN as Flexible Annotation Framework for Sound and Image Processing Detectors, LREC 2010.  
 [5] S. Ayache and G. Quénot, Video Corpus Annotation using Active Learning, In 30th European Conference on Information Retrieval (ECIR'08), Glasgow, Scotland, 30th March - 3rd April, 2008.  
-[6] S. Bird and M. Liberman, “A Formal Framework for Linguistic Annotation,” Speech Communication, vol. 33, no. 1–2, pp. 23–60, Jan. 2001.  
-[7] META-SHARE, <http://www.meta-net.eu/meta-share>  
-[8] J. Poignant et al. Submitted to LREC 2016.
+[6] B. Safadi, S. Ayache and G. Quénot. Active Cleaning for Video Corpus Annotation. International MultiMedia Modeling Conference (MMM 2012), pp.518-528, Klagenfurt, Austria, Jan. 2012.  
+[7] S. Bird and M. Liberman, “A Formal Framework for Linguistic Annotation,” Speech Communication, vol. 33, no. 1–2, pp. 23–60, Jan. 2001.  
+[8] META-SHARE, <http://www.meta-net.eu/meta-share>  
+[9] J. Poignant et al. Submitted to LREC 2016.
 
 
