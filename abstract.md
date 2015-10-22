@@ -91,7 +91,7 @@ RESTful API (clients in Python and Javascript are readily available), with user
 authentication and permission management.
 
 A generic queueing mechanism is also
-available on the CAMOMILE backend as a mean to control the workflow. The
+available on the CAMOMILE backend as a means to control the workflow. The
 CAMOMILE platform is distributed as open-source software at the following
 address: <http://github.com/camomile-project/camomile-server>.
 
