@@ -1,7 +1,7 @@
 # The CAMOMILE collaborative annotation platform for multi-modal, multi-lingual and multi-media documents
 
 
-### Johann Poignant<sup>1</sup>, Mateusz Budnik<sup>2</sup>, Hervé Bredin<sup>1</sup>, Claude Barras<sup>1</sup>, Mickael Stefas<sup>3</sup>, Pierrick Bruneau<sup>3</sup>,  Gilles Adda<sup>1,6</sup>, Laurent Besacier<sup>2</sup>,  Hazim Ekenel<sup>4</sup>, Gil Francopoulo<sup>6</sup>, Javier Hernando<sup>5</sup>, Joseph Mariani<sup>1,6</sup>, Ramon Morros<sup>5</sup>, Georges Quénot<sup>2</sup>, Thomas Tamisier<sup>3</sup>
+### Johann Poignant<sup>1</sup>, Mateusz Budnik<sup>2</sup>, Hervé Bredin<sup>1</sup>, Claude Barras<sup>1</sup>, Mickael Stefas<sup>3</sup>, Pierrick Bruneau<sup>3</sup>,  Gilles Adda<sup>1,6</sup>, Laurent Besacier<sup>2</sup>,  Hazim Ekenel<sup>4</sup>, Gil Francopoulo<sup>6</sup>, Javier Hernando<sup>5</sup>, Joseph Mariani<sup>1,6</sup>, Ramon Morros<sup>5</sup>, Georges Quénot<sup>2</sup>, Sophie Rosset<sup>1</sup>, Thomas Tamisier<sup>3</sup>
 
 1. LIMSI, CNRS, Univ. Paris-Sud, Université Paris-Saclay, F-91405 Orsay
 2. LIG, Univ. Grenoble Alpes, Grenoble, France
