@@ -216,7 +216,7 @@ All the script and interfaces related to this campaign are publicly available
 on the CAMOMILE GitHub page. Though some were designed specifically for the
 proposed MediaEval Person Discovery task, we believe that a significant part of
 the approach is generic enough to be easily ported to a different task
-where manual and automatic annotation of audio-visual corpora is involved.
+where manual and automatic annotation of audio-visual corpora is involved **_(for the extended version, maybe mention the reuse by Laurence Devillers' team?)_**.
 
 ## Acknowledgements
 
