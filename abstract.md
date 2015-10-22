@@ -8,11 +8,11 @@
 ## Introduction
 
 For decades, NIST evaluation campaigns have been driving research in the field
-of human language technology [1], recently followed by the CLEF [X], ESTER [X]
-and ETAPE [X] **_(X references to be resolved)_** initiatives. The concept has been successfully transposed to
+of human language technology [1], recently followed by the CLEF [6] and
+ESTER/ETAPE [7] initiatives. The concept has been successfully transposed to
 other research areas, such as image recognition (ImageNet Large Scale Visual
-Recognition Challenge [X]), video (TRECVID [X]) or multimedia indexing
-(MediaEval [X]). More generally, evaluation campaigns allow the assessment of
+Recognition Challenge [8]), video (TRECVID [9]) or multimedia indexing
+(MediaEval [10]). More generally, evaluation campaigns allow the assessment of
 experimental research in fields where human perception and decision must be
 reproduced by machine learning algorithms [2].
 
@@ -231,8 +231,18 @@ development and evaluation datasets.
 
 [2] E. Geoffrois, An Economic View on Human Language Technology Evaluation. In LREC, 2008.
 
-[3] J. Poignant, H. Bredin, and C. Barras. Multimodal Person Discovery in Broadcast TV at MediaEval 2015. In MEDIAEVAL, 2015.
+[3] J. Poignant, H. Bredin, and C. Barras. Multimodal Person Discovery in Broadcast TV at MediaEval 2015. In MediaEval, 2015.
 
 [4] J. Poignant et al. The CAMOMILE collaborative annotation framework. Submitted to LREC 2016.
 
 [5] E. Yilmaz, and J. A. Aslam. Estimating Average Precision with Incomplete and Imperfect Judgments. In Proceedings of the 15th ACM International Conference on Information and Knowledge Management.
+
+[6] C. Peters, M. Braschler. The Importance of Evaluation for Cross-language System Development: the CLEF Experience. In LREC, 2002.
+
+[7] G. Gravier, J.F. Bonastre, S. Galliano, E. Geoffrois, K. Mc Tait and K. Choukri. The ESTER evaluation campaign of Rich Transcription of French Broadcast News. In LREC, 2004.
+
+[8] O. Russakovsky* J. Deng, H. Su, J. Krause, S. Satheesh, S. Ma, Z. Huang, A. Karpathy, A. Khosla, M. Bernstein, A. C. Berg and L. Fei-Fei. ImageNet Large Scale Visual Recognition Challenge. In IJCV, 2015.
+
+[9] A. F. Smeaton, P. Over, W. Kraaij. Evaluation campaigns  and TRECVid. In MIR, 2006.
+
+[10] M. Larson, B. Ionescu, M. Sjöberg, X. Anguera, J. Poignant, M. Riegler, M. Eskevich, C. Hauff, R. Sutcliffe, G.J.F. Jones, Y.-H. Yang, M. Soleymani, S. Papadopoulos, Working Notes Proceedings of the MediaEval 2015 Workshop.
