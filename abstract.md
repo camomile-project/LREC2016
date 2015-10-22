@@ -116,7 +116,7 @@ one user account for each team member.
 
 **Distribution.**  Due to technical (limited internet bandwith) or copyright
 concerns (datasets distributed by third parties), the development and
-evaluation datasets were not distributed through the CAMOMILE platform **_(here unclear if video collections transmitted ''annotation-free'', or if ground truth annotation are attached as eg. JSON)_**.
+evaluation datasets were not distributed through the CAMOMILE platform.
 Instead, ELDA and INA took care of sending the datasets to the participants.
 Nevertheless, corresponding metadata for corpora (development and test sets)
 and layers (for each video) were created as CAMOMILE resources with read
@@ -216,7 +216,7 @@ All the script and interfaces related to this campaign are publicly available
 on the CAMOMILE GitHub page. Though some were designed specifically for the
 proposed MediaEval Person Discovery task, we believe that a significant part of
 the approach is generic enough to be easily ported to a different task
-where manual and automatic annotation of audio-visual corpora is involved **_(for the extended version, maybe mention the reuse by Laurence Devillers' team?)_**.
+where manual and automatic annotation of audio-visual corpora is involved.
 
 ## Acknowledgements
 
