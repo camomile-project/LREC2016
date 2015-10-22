@@ -9,7 +9,7 @@
 
 For decades, NIST evaluation campaigns have been driving research in the field
 of human language technology [1], recently followed by the CLEF [X], ESTER [X]
-and ETAPE [X] initiatives. The concept has been successfully transposed to
+and ETAPE [X] **_(X references to be resolved)_** initiatives. The concept has been successfully transposed to
 other research areas, such as image recognition (ImageNet Large Scale Visual
 Recognition Challenge [X]), video (TRECVID [X]) or multimedia indexing
 (MediaEval [X]). More generally, evaluation campaigns allow the assessment of
@@ -59,7 +59,7 @@ biometric models.
 
 To ensure that participants followed this strict ''no biometric supervision''
 constraint, each hypothesized name had to be backed up by an ''evidence'': a
-unique and carefully selected shot prooving that the person actually holds this
+unique and carefully selected shot proving that the person actually holds this
 name (e.g. a shot showing a text overlay introducing the person by their name).
 In real-world conditions, this evidence would help a human annotator
 double-check the automatically-generated index, even for people they did not
@@ -74,7 +74,7 @@ Eight teams managed to reach the submission deadline, amounting to a total of
 70 submitted runs. For further details about the task, dataset and metrics, the
 interested reader can refer to [3].
 
-## CAMOMILE + Person Discovery = <3
+## Person Discovery made easy with CAMOMILE
 
 The CAMOMILE platform was initially developed for supporting collaborative
 annotation of multimodal, multilingual and multimedia data [4]. The data model
@@ -83,7 +83,7 @@ corpus, medium, layer and annotation.
 
 A corpus is a set of media (e.g. the
 evaluation corpus made of all test videos). An annotation is defined by a
-fragment of a medium (e.g. a shot) with an attached metadata (e.g. the name
+fragment of a medium (e.g. a shot) with attached metadata (e.g. the name
 of the current speaker). Finally, a layer is an homogeneous set of annotations,
 sharing the same fragment type and the same metadata type (e.g. a complete run
 submitted by one participant). All these resources are accessible through a
@@ -91,7 +91,7 @@ RESTful API (clients in Python and Javascript are readily available), with user
 authentication and permission management.
 
 A generic queueing mechanism is also
-available on the CAMOMILE backend as a means to control the workflow. The
+available on the CAMOMILE backend as a mean to control the workflow. The
 CAMOMILE platform is distributed as open-source software at the following
 address: <http://github.com/camomile-project/camomile-server>.
 
@@ -116,11 +116,11 @@ one user account for each team member.
 
 **Distribution.**  Due to technical (limited internet bandwith) or copyright
 concerns (datasets distributed by third parties), the development and
-evaluation datasets were not distributed through the CAMOMILE platform.
+evaluation datasets were not distributed through the CAMOMILE platform **_(here unclear if video collections transmitted ''annotation-free'', or if ground truth annotation are attached as eg. JSON)_**.
 Instead, ELDA and INA took care of sending the datasets to the participants.
-Nevertheless, corresponding corpora (for the development and the test sets)
+Nevertheless, corresponding metadata for corpora (development and test sets)
 and layers (for each video) were created as CAMOMILE resources with read
-permissions for each team, allowing them to access the local copy of the videos.
+permissions for each team, then bound to a local copy of the videos.
 
 **Submission.**  While the standard MediaEval submission procedure is to ask
 participating teams to upload their runs into a shared online directory, we
@@ -144,11 +144,11 @@ While the development dataset had already been annotated in the framework of
 the past REPERE evaluation campaigns, the evaluation dataset was distributed by
 INA without any annotation. Thanks to the CAMOMILE platform, we were able to
 setup a collaborative annotation campaign where participants themselves would
-contribute some time to annotation the evaluation dataset.
+contribute some time to annotate the evaluation dataset.
 
 Two dedicated and complementary annotation web interfaces were developed, both
 based on the CAMOMILE Javascript client. The first one is dedicated to the
-correction of the ''evidences'' submitted by participants. For each correct
+correction of the ''pieces of evidence'' submitted by participants. For each correct
 evidence, annotators had to draw a bounding box around the face of the person
 and spellcheck their hypothesized name (firstname_lastname). The second one
 relies on the resulting mugshots to ask the annotator to decide visually if
@@ -173,7 +173,7 @@ half of the evaluation corpus in less than a month.
 
 *Table 1 - Amount and median duration of annotations for both interfaces*
 
-While the annotation of ''evidences'' was done by the organizers themselves,
+While the annotation of ''evidence'' was done by the organizers themselves,
 we wanted to guarantee the quality of the ''labels'' annotation done by the
 participants themselves. To that end, each shot was required to be annotated at
 least twice. Additional annotation of the same shot were requested until a
@@ -204,7 +204,7 @@ interface: people singing or dubbed, barely audible speech, etc.
 
 ## Conclusions and perspectives
 
-Relying entirely on the CAMOMILE annotation platform, a team of two persons was
+Relying entirely on the CAMOMILE annotation platform, a team of two people was
 able to manage a large scale multimedia technology benchmark (10 teams,
 70 submissions, 30k shots) -- including the development of the submission
 management script, the leaderboard service and the whole annotation campaign.
@@ -213,7 +213,7 @@ and resisted the load even during the peak submission time (right before the
 deadline) and the concurrent collaborative annotation period.
 
 All the script and interfaces related to this campaign are publicly available
-on CAMOMILE GitHub page. Though some were designed specifically for the
+on the CAMOMILE GitHub page. Though some were designed specifically for the
 proposed MediaEval Person Discovery task, we believe that a significant part of
 the approach is generic enough to be easily ported to a different task
 where manual and automatic annotation of audio-visual corpora is involved.
