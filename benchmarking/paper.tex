@@ -1,11 +1,17 @@
 \documentclass[10pt, a4paper]{article}
-\usepackage{lrec2014}
+\usepackage{lrec2016}
+\usepackage{multibib}
+\newcites{languageresource}{Language Resources}
 \usepackage{graphicx}
-\usepackage{hyperref}
-\usepackage[utf8]{inputenc}
- 
 
-\title{Benchmarking multimedia technologies with the CAMOMILE platform: the case of Multimodal Person Discovery at MediaEval 2015}
+
+\usepackage{epstopdf}
+\usepackage[utf8]{inputenc}
+
+\usepackage{hyperref}
+
+
+\title{Benchmarking Multimedia Technologies with the CAMOMILE Platform:\\the Case of Multimodal Person Discovery at MediaEval 2015}
 
 \name{Johann Poignant$^1$, Hervé Bredin$^1$, Claude Barras$^1$,\\
      {\bf\large  Mickael Stefas$^2$, Pierrick Bruneau$^2$, Thomas Tamisier$^2$}
@@ -14,8 +20,9 @@
 \address{1. LIMSI, CNRS, Univ. Paris-Sud, Université Paris-Saclay, F-91405 Orsay, firstname.lastname@limsi.fr \\
 		 2. LIST, Esch-sur-Alzette, Luxembourg,  firstname.lastname@list.lu\\}
 
-\abstract{blabla \newline \Keywords{ }}
-
+\abstract{In this paper, we claim that the CAMOMILE collaborative annotation platform (developed in the framework of the eponymous CHIST-ERA project) eases the organization of multimedia technology benchmarks, automating most of the campaign technical workflow and enabling collaborative (hence faster and cheaper) annotation of the evaluation data. This is demonstrated through the successful organization of a new multimedia task at MediaEval 2015, Multimodal Person Discovery in Broadcast TV. \\
+\newline
+\Keywords{evaluation campaign, collaborative annotation, multimedia}}
 
 
 \begin{document}
@@ -57,7 +64,7 @@ cheaper) annotation of the evaluation data. This is demonstrated through the
 successful organization of a new multimedia task at MediaEval 2015, Multimodal
 Person Discovery in Broadcast TV \cite{Poignant2015}.
 
-\section{MediaEval 2015: Multimodal Person Discovery in Broadcast TV}
+\section{Multimodal Person Discovery in Broadcast TV}
 
 The objective of this new task is to make TV archives fully exploitable and
 searchable through people indexing. Participants were provided with a
@@ -74,8 +81,8 @@ finding their name in the audio (using speech transcription - ASR) or visual
 correct person -- making the task completely unsupervised with respect to prior
 biometric models.
 
-To ensure that participants followed this strict ''no biometric supervision''
-constraint, each hypothesized name had to be backed up by an ''evidence'': a
+To ensure that participants followed this strict ``no biometric supervision''
+constraint, each hypothesized name had to be backed up by an ``evidence'': a
 unique and carefully selected shot proving that the person actually holds this
 name (e.g. a shot showing a text overlay introducing the person by their name).
 In real-world conditions, this evidence would help a human annotator
@@ -87,26 +94,23 @@ them to only focus on some aspects of the task (e.g. speaker diarization) while
 still being able to rely on the baseline modules for the other ones (e.g.
 optical character recognition). The task was evaluated as a standard
 information retrieval task using a metric derived from mean average precision.
-Eight teams managed to reach the submission deadline, amounting to a total of
+Nine teams \cite{NISHI--MEDIAEVAL--2015,BUDNIK--MEDIAEVAL--2015,LOPEZ-OTERO--MEDIAEVAL--2015,INDIA--MEDIAEVAL--2015,POIGNANT--MEDIAEVAL--2015b,BENDRIS--MEDIAEVAL--2015,DOS_SANTOS--MEDIAEVAL--2015,LE--MEDIAEVAL--2015} managed to reach the submission deadline, amounting to a total of
 70 submitted runs. For further details about the task, dataset and metrics, the
 interested reader can refer to \cite{Poignant2015}.
 
-
-\begin{figure*}[htb]
- \center 
- \includegraphics[width=1\linewidth]{figs/workflow.png}
- \centering
- \caption {Workflow automation with the CAMOMILE platform}
- \label{fig:archi}
-\end{figure*}
-
 \section{Person Discovery made easy with CAMOMILE}
 
-
 The CAMOMILE platform was initially developed for supporting collaborative
-annotation of multimodal, multilingual and multimedia data \cite{Poignant2016b}. The data model
-was kept intentionally simple and generic, with four types of resources:
+annotation of multimodal, multilingual and multimedia data~\cite{Poignant2016b}.
+The data model was kept intentionally simple and generic, with four types of resources:
 corpus, medium, layer and annotation.
+
+\begin{figure}[htb]
+\center
+\includegraphics[width=0.8\linewidth]{figs/model.pdf}
+\label{fig:model}
+\caption{CAMOMILE data model}
+\end{figure}
 
 A corpus is a set of media (e.g. the
 evaluation corpus made of all test videos). An annotation is defined by a
@@ -122,23 +126,34 @@ available on the CAMOMILE backend as a means to control the workflow. The
 CAMOMILE platform is distributed as open-source software at the following
 address: \url{http://github.com/camomile-project/camomile-server}.
 
-
 \subsection{Automating the benchmarking workflow}
 
-The upper part of Figure 1 depicts the technical workflow of the proposed
+\begin{figure*}[htb]
+ \center
+ \includegraphics[width=1\linewidth]{figs/workflow.pdf}
+ \centering
+ \caption {Workflow automation with the CAMOMILE platform}
+ \label{fig:archi}
+\end{figure*}
+
+The upper part of Figure~\ref{fig:archi} depicts the technical workflow of the proposed
 evaluation campaign.
 
-The lower parts of Figure 1 summarize how we relied on the CAMOMILE platform
+The lower parts of Figure~\ref{fig:archi} summarize how we relied on the CAMOMILE platform
 and its Python and Javascript clients to automate most of the workflow.
 
-\textbf{Registration.} After the task was advertised through the MediaEval call for
+\subsubsection{Registration}
+
+After the task was advertised through the MediaEval call for
 participation, we relied on MediaEval standard registration procedure (i.e.
 filling an online form and signing dataset usage agreements) to gather the list
 of participating teams. Through a web interface, users and groups management
 features of the CAMOMILE platform were used to create one group per team and
 one user account for each team member.
 
-\textbf{Distribution.}  Due to technical (limited internet bandwith) or copyright
+\subsubsection{Distribution}
+
+Due to technical (limited internet bandwith) or copyright
 concerns (datasets distributed by third parties), the development and
 evaluation datasets were not distributed through the CAMOMILE platform.
 Instead, ELDA and INA took care of sending the datasets to the participants.
@@ -146,7 +161,9 @@ Nevertheless, corresponding metadata for corpora (development and test sets)
 and layers (for each video) were created as CAMOMILE resources with read
 permissions for each team, then bound to a local copy of the videos.
 
-\textbf{Submission.}  While the standard MediaEval submission procedure is to ask
+\subsubsection{Submission}
+
+While the standard MediaEval submission procedure is to ask
 participating teams to upload their runs into a shared online directory, we
 chose to distribute to all participants a submission management tool, based on
 the CAMOMILE Python client. This command line tool would automatically check
@@ -154,7 +171,9 @@ the format of the submission files, authenticate users with their CAMOMILE
 credentials and creates a new layer (and associated annotations) for each
 submission, with read/write permissions to (and only to) every team member.
 
-\textbf{Evaluation.} For the duration of the submission period, a continuous
+\subsubsection{Evaluation}
+
+For the duration of the submission period, a continuous
 evaluation service based on the CAMOMILE Python client would update a live
 leaderboard computed on a secret subset of the evaluation dataset -- providing
 feedback to participants about the performance of their current submissions.
@@ -171,25 +190,60 @@ INA without any annotation. Thanks to the CAMOMILE platform, we were able to
 setup a collaborative annotation campaign where participants themselves would
 contribute some time to annotate the evaluation dataset.
 
+\subsubsection{Annotation interfaces}
+
 Two dedicated and complementary annotation web interfaces were developed, both
 based on the CAMOMILE Javascript client. The first one is dedicated to the
-correction of the ''pieces of evidence'' submitted by participants. For each correct
+correction of the ``pieces of evidence'' submitted by participants. For each correct
 evidence, annotators had to draw a bounding box around the face of the person
-and spellcheck their hypothesized name (firstname\_lastname). The second one
-relies on the resulting mugshots to ask the annotator to decide visually if
-the hypothesized person is actually speaking and visible during a video shot.
-
-Both annotation interfaces relied on the CAMOMILE queueing feature, thanks to
-a submission monitoring service that would continuously watch for new
-submissions and update annotation queues accordingly. Moreover, a monitoring
-interface was also accessible to the organizers to quickly gain insight into
+and spellcheck their hypothesized name (\texttt{firstname\_lastname}).
+The second one relies on the resulting mugshots to ask the annotator to decide
+visually if the hypothesized person is actually speaking and visible during a video shot.
+Moreover, a monitoring interface was also accessible to the organizers to quickly gain insight into
 the status of the annotation campaign (e.g. number of shots already annotated).
 
+\begin{figure*}[tb]
+ \centering
+ \begin{tabular}{ccc}
+   \includegraphics[width=0.31\linewidth]{figs/evidence.png} &
+   \includegraphics[width=0.31\linewidth]{figs/label.png} &
+   \includegraphics[width=0.31\linewidth]{figs/monitoring.png} \\
+   Evidence annotation & Label annotation & Annotation monitoring \\
+ \end{tabular}
+ \caption{Annotation web interfaces}
+ \label{fig:annotation}
+\end{figure*}
+
+\subsubsection{Backend}
+
+As shown in Figure~\ref{fig:backend}, both annotation interfaces relied on the
+CAMOMILE queueing feature, thanks to a submission monitoring service that would
+continuously watch for new submissions and update annotation queues accordingly.
+
+\begin{figure*}[htb]
+\centering
+\includegraphics[width=1.\linewidth]{figs/backend.pdf}
+\caption{Annotation management service}
+\label{fig:backend}
+\end{figure*}
+
+Every time a new run was submitted, the annotation management service would
+push not-yet annotated evidences into the CAMOMILE queue used as input for the
+evidence annotation interface. Corresponding mugshots (\emph{i.e.} small picture
+depicting the person's face) would then be extracted automatically for later
+use in the label annotation interface. Similarly, not-yet annotated shots would
+be added into the CAMOMILE queue used as input of the label annotation interface.
+Once a consensus is reached (\emph{cf.} next section), thoses shots would be
+added to the CAMOMILE groundtruth layer. Finally, a submission scoring daemon
+would continuously evaluate each submission, providing scores displayed by the
+live leaderboard.
+
+\subsubsection{Reaching consensus...}
+
 Table 1 summarizes the amount of work done during the annotation campaign.
-7k+ ''evidence'' annotations were performed by 3 organizers while 66k+ ''label''
+7k+ ``evidence'' annotations were performed by 3 organizers while 66k+ ``label''
 annotations were gathered from 20 team members -- leading to the annotation of
 half of the evaluation corpus in less than a month.
-
 
 \begin{table}[ht]
   \centering
@@ -207,12 +261,12 @@ half of the evaluation corpus in less than a month.
   \label{tab:annotations}
 \end{table}
 
-While the annotation of ''evidence'' was done by the organizers themselves,
-we wanted to guarantee the quality of the ''labels'' annotation done by the
+While the annotation of ``evidence'' was done by the organizers themselves,
+we wanted to guarantee the quality of the ``labels'' annotation done by the
 participants themselves. To that end, each shot was required to be annotated at
 least twice. Additional annotation of the same shot were requested until a
 consensus was found. Tables 2 and 3 show that, thanks to a simple, focused and
-dedicated ''label'' interface, the average number of required annotations
+dedicated ``label'' interface, the average number of required annotations
 for each shot is close to the minimum (2).
 
 \begin{table}[ht]
@@ -250,14 +304,13 @@ for each shot is close to the minimum (2).
 \end{table}
 
 A quick look at the few shots with 4 or more annotations reveals a few
-ambiguous cases that were not forecast when designing the ''label'' annotation
+ambiguous cases that were not forecast when designing the ``label'' annotation
 interface: people singing or dubbed, barely audible speech, etc.
-
 
 \section{Conclusion}
 
 Relying entirely on the CAMOMILE annotation platform, a team of two people was
-able to manage a large scale multimedia technology benchmark (10 teams,
+able to manage a large scale multimedia technology benchmark (nine teams,
 70 submissions, 30k shots) -- including the development of the submission
 management script, the leaderboard service and the whole annotation campaign.
 Everything was hosted on a virtual private server with 2 cores and 2 GB of RAM
@@ -270,35 +323,22 @@ proposed MediaEval Person Discovery task, we believe that a significant part of
 the approach is generic enough to be easily ported to a different task
 where manual and automatic annotation of audio-visual corpora is involved.
 
-
 \section{Acknowledgements}
 
-This work was supported by France ''Agence Nationale de la Recherche''
-(ANR) under grant ANR-12-CHRI-0006-01 and Luxembourg ''Fonds National de la
+This work was supported by France ``Agence Nationale de la Recherche''
+(ANR) under grant ANR-12-CHRI-0006-01 and Luxembourg ``Fonds National de la
 Recherche'' (FNR). We thank ELDA and INA for supporting the task with
 development and evaluation datasets.
 
-\section{Copyrights}
 
-The Lan\-gua\-ge Re\-sour\-ce and Evalua\-tion Con\-fe\-rence (LREC) proceedings are published by the European Language Resources Association (ELRA). They include different media that may be used (i.e. hardcopy, CD-ROM, Internet-based/Web, etc.).
-
-ELRA's policy is to acquire copyright for all LREC contributions. In assigning your copyright, you are not forfeiting your right to use your contribution elsewhere.  This you may do without seeking permission and is subject only to normal acknowledgement to the LREC proceedings.
-
-
-\bibliographystyle{lrec2014}
+\section{Bibliographical References}
+\label{main:ref}
+\bibliographystyle{lrec2016}
 \bibliography{publi}
 
+% \section{Language Resource References}
+% \label{lr:ref}
+% \bibliographystylelanguageresource{lrec2016}
+% \bibliographylanguageresource{publi}
+
 \end{document}
-
-
-
-
-
-
-
-
-
-
-
-
-
