@@ -32,16 +32,16 @@
 \section{Introduction}
 
 For decades, NIST evaluation campaigns have been driving research in the field
-of human language technology \cite{Martin2004}, recently followed by the CLEF \cite{Peters2002} and
-ESTER/ETAPE \cite{Gravier2004} initiatives. The concept has been successfully transposed to
+of human language technology~\cite{Martin2004}, recently followed by the CLEF~\cite{Peters2002} and
+ESTER/ETAPE~\cite{Gravier2004} initiatives. The concept has been successfully transposed to
 other research areas, such as image recognition (ImageNet Large Scale Visual
-Recognition Challenge \cite{Russakovsky2015}), video (TRECVID \cite{Smeaton2006}) or multimedia indexing
+Recognition Challenge~\cite{Russakovsky2015}), video (TRECVID~\cite{Smeaton2006}) or multimedia indexing
 (MediaEval \cite{Larson2015}). More generally, evaluation campaigns allow the assessment of
 experimental research in fields where human perception and decision must be
-reproduced by machine learning algorithms \cite{Geoffrois2008}.
+reproduced by machine learning algorithms~\cite{Geoffrois2008}.
 
 The general workflow of \textit{à la NIST} evaluation campaigns comprises the
-following stages \cite{Martin2004} specification of the task; definition of the evaluation
+following stages~\cite{Martin2004}: specification of the task; definition of the evaluation
 metric and provision of an automatic scoring software; design and annotation of
 the training, development and evaluation corpora; definition of evaluation
 rules, schedule, protocols and submission formats; sharing of participant
@@ -53,7 +53,7 @@ step usually is the main bottleneck of evaluation campaigns. When addressing
 new tasks in multimodal perception, it becomes challenging (if not impossible)
 to pre-annotate the ever-increasing volume of multimedia data. A compromise
 has been successfully explored in the TREC and TRECVid campaigns, where
-the annotation of a small (but carefully chosen \cite{Yilmaz2006}) subset of the test data is
+the annotation of a small (but carefully chosen~\cite{Yilmaz2006}) subset of the test data is
 bootstrapped by the participants' submissions.
 
 In this paper, we claim that the CAMOMILE collaborative annotation platform
@@ -62,7 +62,7 @@ organization of multimedia technology benchmarks, automating most of the
 campaign technical workflow and enabling collaborative (hence faster and
 cheaper) annotation of the evaluation data. This is demonstrated through the
 successful organization of a new multimedia task at MediaEval 2015, Multimodal
-Person Discovery in Broadcast TV \cite{Poignant2015}.
+Person Discovery in Broadcast TV~\cite{Poignant2015}.
 
 \section{Multimodal Person Discovery in Broadcast TV}
 
@@ -222,7 +222,7 @@ continuously watch for new submissions and update annotation queues accordingly.
 
 \begin{figure*}[htb]
 \centering
-\includegraphics[width=1.\linewidth]{figs/backend.pdf}
+\includegraphics[width=0.85\linewidth]{figs/backend.pdf}
 \caption{Annotation management service}
 \label{fig:backend}
 \end{figure*}
@@ -317,7 +317,7 @@ Everything was hosted on a virtual private server with 2 cores and 2 GB of RAM
 and resisted the load even during the peak submission time (right before the
 deadline) and the concurrent collaborative annotation period.
 
-All the script and interfaces related to this campaign are publicly available
+All the scripts and interfaces related to this campaign are publicly available
 on the CAMOMILE GitHub page. Though some were designed specifically for the
 proposed MediaEval Person Discovery task, we believe that a significant part of
 the approach is generic enough to be easily ported to a different task
