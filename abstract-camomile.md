@@ -83,4 +83,4 @@ We thank the members of the CAMOMILE international advisory committee for their 
 [8] META-SHARE, <http://www.meta-net.eu/meta-share>  
 [9] J. Poignant et al. Submitted to LREC 2016.
 
-
+## Active learning use case
